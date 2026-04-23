@@ -1388,10 +1388,10 @@ export default function Pretest() {
     }),
     sectionResultFill: (pct, color) => ({
       height: "100%",
-      width: `${pct}%`,
+      width: mountedResult ? `${pct}%` : "0%",
       background: color,
       borderRadius: "2px",
-      transition: "width 1s ease",
+      transition: "width 1.2s cubic-bezier(0.34, 1.56, 0.64, 1)",
     }),
     recommendation: {
       background: "#2a1f19",
@@ -1527,26 +1527,27 @@ export default function Pretest() {
   );
 
   const renderResult = () => (
-    <div>
+    <div className="animate-fade-up">
       <div style={styles.resultHeader}>
-        <div style={{ fontSize: "14px", color: "#d0b29d", letterSpacing: "1.8px", marginBottom: "16px" }}>HASIL PRETEST</div>
-        <div style={styles.bigScore}>{overallPct}%</div>
-        <div style={{ fontSize: "16px", color: "#e2ccbc", marginTop: "10px" }}>
+        <div style={{ fontSize: "14px", color: "#d0b29d", letterSpacing: "1.8px", marginBottom: "16px" }} className="animate-fade-in delay-100">HASIL PRETEST</div>
+        <div style={styles.bigScore} className="animate-pop-in delay-200 score-pulse">{overallPct}%</div>
+        <div style={{ fontSize: "16px", color: "#e2ccbc", marginTop: "10px" }} className="animate-fade-up delay-300">
           {overallScore} / {overallTotal} soal benar
         </div>
-        <div style={{ marginTop: "16px", fontSize: "15px", color: overallPct >= 75 ? "#ffd29b" : overallPct >= 40 ? "#ffcc83" : "#ff9f8d" }}>
+        <div style={{ marginTop: "16px", fontSize: "15px", color: overallPct >= 75 ? "#ffd29b" : overallPct >= 40 ? "#ffcc83" : "#ff9f8d" }} className="animate-fade-up delay-400">
           {overallPct >= 75 ? "🎯 Baseline kuat — modul bisa fokus ke advanced topics" : overallPct >= 40 ? "📚 Baseline cukup — modul dari intermediate level" : "🌱 Baseline awal — modul dari fundamentals"}
         </div>
       </div>
 
       <div style={{ marginBottom: "32px" }}>
-        <div style={{ fontSize: "12px", color: "#d0b29d", letterSpacing: "1.8px", marginBottom: "16px" }}>BREAKDOWN PER TOPIK</div>
-        {sections.map((s) => {
+        <div style={{ fontSize: "12px", color: "#d0b29d", letterSpacing: "1.8px", marginBottom: "16px" }} className="animate-fade-in delay-300">BREAKDOWN PER TOPIK</div>
+        {sections.map((s, idx) => {
           const sc = scores[s.id] || { score: 0, total: s.questions.length, pct: 0 };
           const level = getLevel(sc.pct);
           const lc = getLevelColor(sc.pct);
+          const animDelay = `${300 + idx * 50}ms`;
           return (
-            <div key={s.id} style={styles.sectionResult}>
+            <div key={s.id} style={{...styles.sectionResult, animationDelay: animDelay}} className="animate-fade-up hover-scale">
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                   <span>{s.icon}</span>
@@ -1569,7 +1570,7 @@ export default function Pretest() {
         })}
       </div>
 
-      <div style={styles.recommendation}>
+      <div style={styles.recommendation} className="animate-fade-up delay-500">
         <div style={{ fontSize: "12px", color: "#f0b98f", letterSpacing: "1.8px", marginBottom: "16px" }}>📋 REKOMENDASI MODUL</div>
         <div style={{ fontSize: "14px", color: "#eddacc", lineHeight: "2" }}>
           {Object.entries(scores).map(([id, sc]) => {
@@ -1586,9 +1587,9 @@ export default function Pretest() {
           2) Kirim file CSV itu ke Ade via WhatsApp dengan klik/tap tombol di bawah.<br />
           3) Sertakan catatan singkat jika ada topik yang paling ingin dipelajari dulu.
           <div style={styles.actionRow}>
-            <button style={styles.exportBtn} onClick={handleExportResults}>EXPORT HASIL PRETEST (CSV)</button>
-            <a href={whatsappLink} target="_blank" rel="noreferrer" style={styles.waBtn}>KIRIM KE ADE VIA WHATSAPP</a>
-            <button type="button" style={resetButtonStyle} onClick={handleResetProgress}>{resetButtonLabel}</button>
+            <button style={styles.exportBtn} className="hover-scale" onClick={handleExportResults}>EXPORT HASIL PRETEST (CSV)</button>
+            <a href={whatsappLink} target="_blank" rel="noreferrer" style={styles.waBtn} className="hover-scale">KIRIM KE ADE VIA WHATSAPP</a>
+            <button type="button" style={resetButtonStyle} className="hover-scale" onClick={handleResetProgress}>{resetButtonLabel}</button>
           </div>
         </div>
       </div>
