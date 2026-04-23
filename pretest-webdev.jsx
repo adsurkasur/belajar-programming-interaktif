@@ -1036,7 +1036,7 @@ export default function Pretest() {
       maxWidth: "100vw",
       boxSizing: "border-box",
       background: "#0d0d0d",
-      fontFamily: "'Courier New', 'Fira Code', monospace",
+      fontFamily: "'Plus Jakarta Sans', 'Segoe UI Variable', 'Segoe UI', 'Helvetica Neue', sans-serif",
       color: "#e0e0e0",
       padding: "0 12px 24px",
       overflowX: "hidden",
