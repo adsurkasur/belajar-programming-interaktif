@@ -18,7 +18,7 @@ const sections = [
           "HTML = teks, CSS = fungsi interaktif, JS = desain tampilan",
         ],
         answer: 0,
-        explanation: "HTML menentukan struktur dokumen (heading, paragraf, form, tabel), CSS mengatur presentasi visual (layout, warna, tipografi), dan JavaScript menambahkan perilaku dinamis (event handling, validasi, manipulasi DOM). Ketiganya saling melengkapi: struktur tanpa style terlihat polos, style tanpa struktur tidak bermakna, dan interaktivitas tanpa keduanya tidak punya konteks.",
+        explanation: "Bayangkan website seperti rumah: HTML adalah rangka dan pembagian ruangnya (struktur), CSS adalah cat dan tata interiornya (tampilan), JavaScript adalah listrik dan tombol yang membuat semuanya bereaksi (interaktivitas). Istilah 'struktur' artinya susunan elemen di halaman; 'interaktivitas' artinya halaman bisa merespons aksi user seperti klik, ketik, atau submit.",
       },
       {
         id: "wb2",
@@ -31,7 +31,7 @@ const sections = [
           "Website yang punya animasi dan efek interaktif berlebihan",
         ],
         answer: 0,
-        explanation: "Responsive design berarti satu codebase UI bisa beradaptasi ke berbagai ukuran viewport menggunakan teknik seperti fluid layout, media query, dan elemen fleksibel. Tujuannya bukan hanya mengecilkan tampilan, tetapi menjaga keterbacaan, jarak klik, dan hirarki konten tetap baik di desktop, tablet, maupun mobile.",
+        explanation: "Responsive design artinya tampilan web menyesuaikan ukuran layar tanpa membuat user zoom-in/zoom-out terus-menerus. Istilah 'viewport' berarti area layar yang terlihat oleh user, dan 'media query' adalah aturan CSS yang aktif hanya pada ukuran layar tertentu. Tujuannya: teks tetap terbaca, tombol tetap mudah ditekan, dan layout tetap rapi di desktop, tablet, maupun mobile.",
       },
       {
         id: "wb3",
@@ -44,7 +44,7 @@ const sections = [
           "Protokol komunikasi antara browser dan server",
         ],
         answer: 2,
-        explanation: "DOM (Document Object Model) adalah representasi tree dari dokumen HTML yang diekspos sebagai objek JavaScript. Karena berbentuk objek, kita bisa membaca dan mengubah node (elemen, atribut, teks) saat runtime, misalnya menambah elemen baru, mengganti isi teks, atau merespons klik pengguna.",
+        explanation: "DOM adalah 'versi objek' dari HTML di memori browser. Istilah 'objek' berarti data yang punya properti dan bisa diakses lewat JavaScript; istilah 'node' berarti satu bagian di tree DOM (misalnya <div>, teks, atau atribut). Dengan DOM, kita bisa ubah isi halaman saat aplikasi berjalan, contohnya mengganti teks tombol setelah user menekan tombol itu.",
       },
       {
         id: "wb4",
@@ -57,7 +57,7 @@ const sections = [
           "Menjalankan koneksi database dari browser",
         ],
         answer: 1,
-        explanation: "Tag <script> memberi tahu browser untuk memuat dan mengeksekusi JavaScript. Kode bisa ditulis langsung (inline) atau dari file eksternal (src). Urutan peletakan script memengaruhi kapan kode dijalankan terhadap DOM, karena script dapat menunggu parsing selesai atau langsung dieksekusi tergantung konfigurasi.",
+        explanation: "Tag <script> adalah cara resmi memasukkan JavaScript ke halaman HTML. Script bisa ditulis langsung di file HTML (inline) atau dipisah ke file lain lalu dipanggil dengan src. Posisi script penting karena memengaruhi kapan kode jalan: kalau dijalankan terlalu cepat, elemen HTML yang ingin diakses mungkin belum terbentuk di DOM.",
       },
     ],
   },
@@ -78,7 +78,7 @@ const sections = [
           "const hanya untuk string, let untuk angka, var untuk boolean",
         ],
         answer: 1,
-        explanation: "Perbedaan utamanya ada pada scope dan mutability. var memiliki function scope dan bisa dideklarasikan ulang, sehingga lebih mudah menimbulkan bug pada kode modern. let memiliki block scope dan bisa di-assign ulang, sedangkan const juga block scope tetapi binding variabelnya tidak bisa diganti. Karena itu, praktik umum adalah default ke const, gunakan let jika nilainya memang berubah.",
+        explanation: "Perbedaan besar ada di 'scope' dan apakah nilainya boleh diubah. Scope adalah area kode tempat variabel bisa diakses; 'block scope' artinya variabel hanya hidup di dalam kurung kurawal { ... } tempat ia dibuat. let dan const memakai block scope, sedangkan var lebih longgar (function scope) sehingga lebih rawan bug. const dipakai jika nilai tidak akan diganti, let dipakai jika nilai memang perlu berubah.",
       },
       {
         id: "js2",
@@ -86,7 +86,7 @@ const sections = [
         type: "multiple",
         options: ["'null'", "'undefined'", "'object'", "'boolean'"],
         answer: 2,
-        explanation: "typeof null menghasilkan 'object' karena keputusan historis pada implementasi awal JavaScript. Secara konsep null merepresentasikan 'nilai kosong sengaja', tetapi operator typeof tetap mengembalikan 'object' demi backward compatibility agar kode lama tidak rusak.",
+        explanation: "Jawaban ini memang terlihat aneh, tapi benar secara perilaku JavaScript: typeof null menghasilkan 'object'. null sendiri artinya 'sengaja kosong' (bukan belum didefinisikan). Ini terjadi karena alasan historis di versi awal JavaScript, lalu dipertahankan agar kode lama yang sudah ada tidak tiba-tiba rusak (backward compatibility).",
       },
       {
         id: "js3",
@@ -99,7 +99,7 @@ const sections = [
           "Fitur eksternal untuk membuat HTTP request secara otomatis",
         ],
         answer: 1,
-        explanation: "async/await adalah sintaks untuk bekerja dengan Promise memakai alur yang lebih mudah dibaca. Fungsi async selalu mengembalikan Promise, dan await menunggu Promise settle tanpa memblokir event loop. Ini membuat error handling (try/catch) dan alur langkah-per-langkah jauh lebih jelas dibanding rantai callback panjang.",
+        explanation: "async/await dipakai untuk menangani proses yang butuh waktu (misalnya ambil data API) tanpa membuat kode berantakan. Promise adalah objek yang mewakili hasil 'nanti', sedangkan await berarti 'tunggu hasil ini dulu' di dalam fungsi async. Kode jadi terasa seperti urutan langkah normal, tetapi JavaScript tetap non-blocking (tidak membekukan seluruh aplikasi saat menunggu).",
       },
       {
         id: "js4",
@@ -112,7 +112,7 @@ const sections = [
           "Fungsi yang digunakan khusus untuk request API",
         ],
         answer: 1,
-        explanation: "Callback adalah fungsi yang dipassing ke fungsi lain untuk dipanggil di waktu tertentu, misalnya setelah I/O selesai atau saat event terjadi. Pola ini fundamental di JavaScript karena banyak operasi bersifat asynchronous. Kelemahannya, callback bertingkat bisa sulit dibaca, sehingga sering digantikan Promise dan async/await.",
+        explanation: "Callback function adalah fungsi yang dikirim sebagai input ke fungsi lain, lalu dijalankan belakangan pada momen tertentu. Contoh: saat user klik tombol, browser memanggil fungsi callback yang kita daftarkan. Pola ini penting untuk event dan operasi asynchronous, tetapi kalau callback bersarang terlalu dalam, alur kode jadi sulit dibaca.",
       },
       {
         id: "js5",
@@ -120,7 +120,7 @@ const sections = [
         type: "multiple",
         options: ["6", "[2, 4, 6]", "[1, 2, 3, 1, 2, 3]", "undefined"],
         answer: 1,
-        explanation: ".map() melakukan transformasi setiap elemen array dan mengembalikan array baru dengan panjang yang sama. Pada contoh ini, tiap angka dikali 2 sehingga hasilnya [2, 4, 6]. Array asal tetap utuh karena map bersifat non-mutating terhadap array sumber.",
+        explanation: "Array adalah daftar nilai berurutan, misalnya [1, 2, 3]. method .map() membaca setiap elemen lalu menghasilkan array baru berdasarkan fungsi transformasi yang kita berikan. Di contoh ini tiap angka dikali 2, jadi hasilnya [2, 4, 6]. Penting: array awal tidak berubah; .map() membuat hasil baru.",
       },
     ],
   },
@@ -141,7 +141,7 @@ const sections = [
           "TypeScript hanya bisa dijalankan di Node.js, tidak di browser",
         ],
         answer: 1,
-        explanation: "TypeScript adalah JavaScript + sistem tipe statis. Artinya, sintaks JavaScript tetap berlaku, tetapi compiler TypeScript menambahkan pemeriksaan tipe sebelum kode dijalankan. Hasil akhirnya tetap JavaScript, namun dengan jaring pengaman tambahan saat development.",
+        explanation: "TypeScript bisa dianggap JavaScript yang diberi label tipe data. 'Tipe statis' berarti tipe dicek saat development (sebelum dijalankan), misalnya memastikan nama harus string, bukan angka. Kode TypeScript nanti tetap diubah (compile) menjadi JavaScript untuk dijalankan di browser atau Node.js.",
       },
       {
         id: "ts2",
@@ -154,7 +154,7 @@ const sections = [
           "File JavaScript menjadi lebih kecil ukurannya karena tipe statis",
         ],
         answer: 2,
-        explanation: "Manfaat utama TypeScript adalah menangkap type mismatch lebih awal (compile time), misalnya fungsi yang seharusnya menerima string malah diberi number. Dengan deteksi dini, bug yang biasanya baru muncul saat runtime bisa dicegah, sehingga refactor lebih aman dan debugging lebih cepat.",
+        explanation: "Keuntungan utama TypeScript adalah error tipe bisa ketahuan lebih awal, bahkan sebelum aplikasi dijalankan. Contoh: fungsi minta string tapi kita kirim number, editor/kompiler langsung memberi peringatan. Ini mengurangi bug runtime, membuat refactor lebih aman, dan membantu tim memahami kontrak data antar fungsi.",
       },
       {
         id: "ts3",
@@ -167,7 +167,7 @@ const sections = [
           "Fungsi ini tidak bisa dipanggil dari JavaScript",
         ],
         answer: 1,
-        explanation: "Deklarasi name: string berarti argumen harus bertipe string, sedangkan ): string berarti nilai balik fungsi harus string. Jika dipanggil dengan tipe lain (misalnya number), TypeScript akan memberi error saat proses compile/checking sebelum aplikasi dijalankan.",
+        explanation: "Pada function greet(name: string): string, bagian name: string artinya input name wajib bertipe string. Bagian ): string artinya hasil return fungsi juga harus string. Jadi TypeScript membantu menjaga konsistensi: jika input atau output tidak sesuai tipe yang dijanjikan, akan muncul error saat pengecekan kode.",
       },
       {
         id: "ts4",
@@ -180,7 +180,7 @@ const sections = [
           "Syntax khusus untuk menulis loop",
         ],
         answer: 1,
-        explanation: "Interface mendefinisikan struktur data yang diharapkan, misalnya properti apa yang wajib ada dan tipe masing-masing. Ini berfungsi sebagai kontrak antarbagian kode, sehingga object yang tidak sesuai bentuknya bisa ditolak lebih awal oleh TypeScript.",
+        explanation: "Interface adalah blueprint bentuk data. Misalnya kita definisikan bahwa User harus punya name (string) dan age (number), maka object yang tidak punya properti itu dianggap tidak valid. Ini memudahkan pemula karena aturan bentuk data jadi jelas dan konsisten di seluruh kode.",
       },
     ],
   },
@@ -201,7 +201,7 @@ const sections = [
           "Git hanya untuk Linux, GitHub untuk Windows",
         ],
         answer: 1,
-        explanation: "Git adalah sistem version control yang melacak perubahan kode sebagai commit di repository lokal. GitHub adalah platform hosting kolaboratif untuk repository Git, menyediakan fitur seperti pull request, review, dan issue tracking. Jadi Git adalah tool inti, GitHub adalah layanan kolaborasinya.",
+        explanation: "Git adalah alat untuk mencatat riwayat perubahan kode di komputer kamu (version control). GitHub adalah layanan online untuk menyimpan repo Git dan berkolaborasi dengan tim. Jadi bedanya sederhana: Git = mesin pencatat versinya, GitHub = tempat berbagi, review, dan kerja barengnya.",
       },
       {
         id: "git2",
@@ -214,7 +214,7 @@ const sections = [
           "Menggabungkan branch saat ini dengan branch lain",
         ],
         answer: 1,
-        explanation: "git commit merekam perubahan yang sudah di-stage menjadi snapshot baru di histori lokal. Commit bersifat lokal dulu, sehingga belum muncul di remote. Agar commit terkirim ke GitHub atau origin lain, langkah lanjutannya adalah git push.",
+        explanation: "git commit menyimpan perubahan yang sudah kamu pilih (staged) menjadi satu catatan versi baru di repo lokal. Anggap seperti 'save point' dengan pesan penjelas. Setelah commit, perubahan belum otomatis ada di GitHub; untuk mengirim ke remote, kamu perlu git push.",
       },
       {
         id: "git3",
@@ -227,7 +227,7 @@ const sections = [
           "Membalikkan commit terakhir",
         ],
         answer: 1,
-        explanation: "Branch adalah jalur histori terpisah dari branch utama. Dengan branch, tim bisa mengerjakan fitur atau bugfix secara paralel tanpa langsung mengganggu main. Setelah stabil dan lolos review/test, perubahan digabung (merge/rebase) ke branch target.",
+        explanation: "Branch adalah cabang kerja terpisah dari main agar kamu bisa eksperimen atau bangun fitur tanpa mengganggu kode utama. Saat fitur sudah stabil, perubahan digabungkan kembali ke main lewat proses merge atau rebase. Pola ini membuat kerja tim lebih aman dan terstruktur.",
       },
       {
         id: "git4",
@@ -240,7 +240,7 @@ const sections = [
           "git pull hanya untuk branch main, git fetch untuk semua branch",
         ],
         answer: 1,
-        explanation: "git fetch hanya menyinkronkan referensi remote ke lokal (mengunduh update histori) tanpa mengubah branch aktif. git pull menjalankan fetch lalu langsung mengintegrasikan update ke branch saat ini (umumnya merge atau rebase), sehingga working branch bisa langsung berubah.",
+        explanation: "git fetch hanya mengambil update terbaru dari remote ke lokal, tetapi tidak langsung mencampur ke branch aktif. git pull melakukan dua langkah sekaligus: fetch + gabungkan ke branch aktif. Jadi pull lebih 'langsung berubah', sedangkan fetch lebih aman untuk cek dulu sebelum merge.",
       },
       {
         id: "git5",
@@ -253,7 +253,7 @@ const sections = [
           "git checkout HEAD~1",
         ],
         answer: 2,
-        explanation: "git reset --soft HEAD~1 memundurkan pointer commit satu langkah, tetapi isi perubahan tetap ada di staging area sehingga mudah diperbaiki lalu commit ulang. Berbeda dengan --hard yang membuang perubahan dari working tree, dan revert yang tidak menghapus histori melainkan menambah commit pembalik.",
+        explanation: "git reset --soft HEAD~1 membatalkan commit terakhir, tetapi isi perubahannya tetap ada (masih siap di-commit ulang). Ini cocok kalau pesan commit salah atau ingin menggabungkan commit. Berbeda dengan --hard yang bisa membuang perubahan, sedangkan revert membuat commit baru untuk membalik efek commit lama.",
       },
     ],
   },
@@ -274,7 +274,7 @@ const sections = [
           "Tool untuk membuat mobile app",
         ],
         answer: 1,
-        explanation: "Node.js adalah runtime yang menjalankan JavaScript di sisi server menggunakan mesin V8. Dengan Node.js, JavaScript bisa dipakai untuk backend, CLI tool, automation, dan layanan jaringan, bukan hanya untuk interaksi di browser.",
+        explanation: "Node.js adalah lingkungan (runtime) untuk menjalankan JavaScript di luar browser, terutama di server. Istilah 'runtime' artinya tempat kode dieksekusi. Dengan Node.js, JavaScript bisa dipakai untuk backend API, script otomatisasi, dan tools command line, bukan hanya untuk tombol/interaksi di halaman web.",
       },
       {
         id: "node2",
@@ -287,7 +287,7 @@ const sections = [
           "File yang berisi konfigurasi sensitif seperti password dan API keys",
         ],
         answer: 2,
-        explanation: "package.json adalah file manifest proyek JavaScript/Node.js. Di dalamnya ada metadata proyek, daftar dependency, devDependency, serta scripts yang menstandardkan command seperti dev, build, dan test agar workflow tim konsisten.",
+        explanation: "package.json adalah file identitas dan konfigurasi utama proyek JavaScript. Di dalamnya ada nama proyek, versi, daftar paket yang dibutuhkan, serta scripts seperti npm run dev/build/test. Ini membantu semua anggota tim menjalankan perintah yang sama dengan cara yang konsisten.",
       },
       {
         id: "node3",
@@ -300,7 +300,7 @@ const sections = [
           "dependencies untuk frontend, devDependencies untuk backend",
         ],
         answer: 1,
-        explanation: "dependencies berisi paket yang dibutuhkan aplikasi saat runtime production, misalnya React pada aplikasi client. devDependencies berisi alat bantu development seperti linter, bundler, atau compiler yang tidak wajib berjalan di production server.",
+        explanation: "dependencies adalah paket yang dibutuhkan aplikasi saat benar-benar berjalan (runtime), misalnya React di aplikasi frontend. devDependencies adalah alat bantu saat pengembangan, seperti linter atau bundler. Ringkasnya: dependencies untuk 'jalanin aplikasi', devDependencies untuk 'bangun dan cek aplikasi'.",
       },
       {
         id: "node4",
@@ -313,7 +313,7 @@ const sections = [
           "Menjalankan semua script test yang tersedia di project",
         ],
         answer: 2,
-        explanation: "npm install membaca package.json lalu menginstal paket ke node_modules sesuai aturan versi. npm juga membuat/memperbarui package-lock.json agar versi paket yang dipasang lebih reproducible, sehingga lingkungan lokal dan CI lebih konsisten.",
+        explanation: "Saat menjalankan npm install, npm membaca package.json lalu mengunduh paket ke folder node_modules. npm juga membuat/menyesuaikan package-lock.json yang mencatat versi detail paket agar hasil instalasi konsisten antar komputer dan CI. Ini penting supaya aplikasi tidak 'jalan di laptop A tapi error di laptop B'.",
       },
     ],
   },
@@ -334,7 +334,7 @@ const sections = [
           "Tool untuk mengoptimasi gambar di website",
         ],
         answer: 1,
-        explanation: "React adalah library untuk membangun UI berbasis komponen reusable. Data mengalir melalui props, state mengatur kondisi lokal komponen, dan React melakukan update DOM secara efisien dengan mekanisme rekonsiliasi sehingga rendering lebih terkelola.",
+        explanation: "React adalah library untuk membuat UI dari komponen kecil yang bisa dipakai ulang. props adalah data dari parent ke child, sedangkan state adalah data internal komponen yang bisa berubah. Saat state berubah, React memperbarui tampilan yang perlu saja, sehingga pengelolaan UI lebih terstruktur dan efisien.",
       },
       {
         id: "next2",
@@ -347,7 +347,7 @@ const sections = [
           "Next.js biasanya lebih lambat daripada React biasa karena overhead tambahan",
         ],
         answer: 1,
-        explanation: "Next.js adalah framework React yang menambahkan fitur arsitektural seperti routing berbasis file, rendering server/static, dan optimasi bawaan. Dengan ini, developer tidak perlu merakit semua tooling dari nol untuk kebutuhan produksi seperti SEO, performa, dan struktur aplikasi.",
+        explanation: "Next.js adalah framework di atas React yang menambahkan fitur siap pakai untuk aplikasi produksi. Contohnya routing berbasis file (nama file jadi URL), pilihan rendering server/static, dan optimasi performa bawaan. Jadi developer tidak perlu merakit semua konfigurasi penting dari nol.",
       },
       {
         id: "next3",
@@ -360,7 +360,7 @@ const sections = [
           "Rendering dilakukan di CDN (Content Delivery Network)",
         ],
         answer: 1,
-        explanation: "SSR (Server-Side Rendering) berarti server membangun HTML lebih dulu sebelum respons dikirim ke browser. Dampaknya, konten awal lebih cepat terlihat dan mudah diindeks mesin pencari. Setelah itu, JavaScript melakukan hydration agar halaman menjadi interaktif penuh.",
+        explanation: "SSR (Server-Side Rendering) artinya HTML dibentuk di server lalu dikirim ke browser dalam kondisi sudah berisi konten. Keuntungannya: halaman awal biasanya lebih cepat terlihat dan lebih ramah SEO. Setelah HTML tampil, JavaScript melakukan hydration, yaitu 'menyambungkan' event interaktif ke HTML yang sudah ada.",
       },
       {
         id: "next4",
@@ -373,7 +373,7 @@ const sections = [
           "Perintah khusus untuk men-deploy aplikasi Next.js ke Vercel",
         ],
         answer: 1,
-        explanation: "Direktif 'use client' memberi tahu Next.js bahwa komponen harus dijalankan di browser (client-side), bukan hanya di server. Ini diperlukan saat komponen memakai state, effect, akses API browser, atau event handler. Tanpa direktif ini, komponen App Router diperlakukan sebagai Server Component secara default.",
+        explanation: "'use client' adalah penanda bahwa komponen harus berjalan di browser (client), bukan hanya dirender di server. Ini wajib jika komponen memakai useState, useEffect, event handler (onClick), atau akses object browser seperti window. Tanpa directive ini, komponen App Router dianggap Server Component secara default.",
       },
     ],
   },
@@ -394,7 +394,7 @@ const sections = [
           "Format penyimpanan data di database NoSQL",
         ],
         answer: 1,
-        explanation: "SQL (Structured Query Language) adalah bahasa deklaratif untuk mengelola data di relational database. SQL dipakai untuk query data (SELECT), perubahan data (INSERT/UPDATE/DELETE), dan definisi struktur tabel/index sesuai kebutuhan aplikasi.",
+        explanation: "SQL (Structured Query Language) adalah bahasa untuk berkomunikasi dengan database relasional seperti PostgreSQL/MySQL. Dengan SQL, kita bisa membaca data (SELECT), menambah data (INSERT), mengubah data (UPDATE), dan menghapus data (DELETE). Jadi SQL bukan bahasa UI, tetapi bahasa pengelolaan data.",
       },
       {
         id: "db2",
@@ -407,7 +407,7 @@ const sections = [
           "Mengubah umur semua user menjadi 18",
         ],
         answer: 2,
-        explanation: "Query ini membaca tabel users lalu memfilter baris dengan syarat age > 18. Kata kunci SELECT * berarti semua kolom dikembalikan untuk baris yang lolos filter. Perintah ini hanya membaca data, tidak mengubah isi tabel.",
+        explanation: "Perintah SELECT * FROM users WHERE age > 18 berarti: ambil data dari tabel users, lalu pilih hanya baris yang umur (age) lebih dari 18. Tanda * berarti semua kolom diambil. Query ini bersifat read-only, jadi tidak mengubah data di database.",
       },
       {
         id: "db3",
@@ -420,7 +420,7 @@ const sections = [
           "Kunci enkripsi untuk data sensitif",
         ],
         answer: 2,
-        explanation: "Primary key adalah identitas unik tiap record pada tabel relasional. Nilainya harus unik dan tidak boleh NULL agar setiap baris bisa direferensikan dengan pasti, misalnya untuk join antar tabel dan menjaga integritas data.",
+        explanation: "Primary key adalah kolom identitas unik untuk setiap baris data. 'Unik' artinya tidak boleh ada dua baris dengan nilai yang sama, dan tidak boleh kosong (NULL). Ini penting agar satu data bisa dirujuk dengan pasti, misalnya saat menghubungkan tabel users dan orders.",
       },
       {
         id: "db4",
@@ -433,7 +433,7 @@ const sections = [
           "Bahasa pemrograman untuk backend",
         ],
         answer: 1,
-        explanation: "Supabase adalah platform BaaS berbasis PostgreSQL yang menyediakan komponen backend siap pakai seperti database, autentikasi, storage, realtime, dan fungsi edge. Tujuannya mempercepat pengembangan tanpa membangun semua infrastruktur backend dari nol.",
+        explanation: "Supabase adalah layanan Backend-as-a-Service (BaaS) berbasis PostgreSQL. Artinya, banyak kebutuhan backend sudah disediakan: database, login/auth, storage file, realtime, dan lain-lain. Ini membantu pemula fokus ke fitur aplikasi tanpa harus menyiapkan backend dari nol.",
       },
     ],
   },
@@ -454,7 +454,7 @@ const sections = [
           "Proses testing aplikasi sebelum diluncurkan",
         ],
         answer: 2,
-        explanation: "Deployment adalah proses merilis aplikasi ke environment production agar bisa diakses pengguna nyata. Biasanya mencakup build artefak, konfigurasi environment, upload ke server/platform, lalu verifikasi bahwa aplikasi berjalan stabil setelah rilis.",
+        explanation: "Deployment adalah proses memindahkan aplikasi dari lingkungan pengembangan ke lingkungan production agar bisa dipakai user sungguhan. Biasanya meliputi build (membuat file siap rilis), set environment variable, upload ke server/platform, lalu pengecekan akhir apakah aplikasi berjalan normal.",
       },
       {
         id: "dep2",
@@ -467,7 +467,7 @@ const sections = [
           "Protokol khusus untuk komunikasi antara frontend dan backend",
         ],
         answer: 1,
-        explanation: "CI/CD adalah pipeline otomatis untuk menjaga kualitas dan kecepatan rilis. CI (Continuous Integration) menjalankan build/test pada perubahan kode, sedangkan CD (Continuous Delivery/Deployment) menyiapkan atau langsung merilis versi baru setelah quality gate terpenuhi.",
+        explanation: "CI/CD adalah alur otomatis dari perubahan kode sampai siap rilis. CI (Continuous Integration) biasanya menjalankan build dan test setiap ada perubahan agar bug cepat ketahuan. CD (Continuous Delivery/Deployment) melanjutkan proses ke tahap rilis, baik rilis manual terkontrol maupun otomatis setelah syarat kualitas terpenuhi.",
       },
       {
         id: "dep3",
@@ -480,7 +480,7 @@ const sections = [
           "File konfigurasi untuk mengatur tampilan website",
         ],
         answer: 1,
-        explanation: "File .env menyimpan variabel konfigurasi yang bisa berbeda antar environment, seperti API key, database URL, dan secret. Nilai ini dipisahkan dari source code agar lebih aman dan mudah dikelola saat berpindah dari development ke staging atau production.",
+        explanation: "File .env menyimpan nilai konfigurasi seperti API key, database URL, atau secret token. Nilai ini dipisahkan dari source code supaya tidak ikut tersebar saat kode dibagikan. Selain lebih aman, cara ini juga memudahkan karena nilai untuk dev, staging, dan production bisa berbeda tanpa ubah kode aplikasi.",
       },
       {
         id: "dep4",
@@ -493,7 +493,7 @@ const sections = [
           "Tool di GitHub yang membantu membuat dokumentasi proyek secara otomatis",
         ],
         answer: 2,
-        explanation: "GitHub Actions adalah layanan automasi berbasis workflow YAML di repository GitHub. Workflow dapat dipicu event seperti push atau pull request untuk menjalankan job build, test, lint, hingga deploy secara konsisten tanpa proses manual berulang.",
+        explanation: "GitHub Actions adalah fitur otomatisasi di GitHub yang dijalankan lewat file workflow berformat YAML. Workflow bisa aktif saat event tertentu, misalnya push atau pull request, lalu menjalankan job seperti test, lint, build, sampai deploy. Tujuannya mengurangi pekerjaan manual berulang dan menjaga proses rilis konsisten.",
       },
     ],
   },
@@ -514,7 +514,7 @@ const sections = [
           "Proses mengoptimasi database agar lebih cepat",
         ],
         answer: 0,
-        explanation: "Vibe coding adalah pendekatan pengembangan di mana developer memberi instruksi natural language ke AI untuk menghasilkan draft kode dengan cepat. Nilai utamanya ada pada percepatan ide ke prototipe, tetapi kualitas akhir tetap bergantung pada review teknis, pengujian, dan pemahaman developer terhadap kode yang dihasilkan.",
+        explanation: "Vibe coding adalah gaya kerja di mana developer memberi instruksi bahasa natural ke AI untuk membuat draft kode lebih cepat. Ini bagus untuk mempercepat prototipe, tetapi kode hasil AI tetap harus dipahami oleh developer. Jadi AI membantu kecepatan, bukan menggantikan tanggung jawab teknis seperti review dan testing.",
       },
       {
         id: "ai2",
@@ -527,7 +527,7 @@ const sections = [
           "Mengubah aplikasi mobile menjadi desktop tanpa menulis ulang",
         ],
         answer: 0,
-        explanation: "Tool seperti Copilot, Gemini Code Assist, atau Claude Code berperan sebagai akselerator penulisan kode: memberi saran, melengkapi boilerplate, atau membuat draft fungsi. Namun output AI tidak boleh dianggap final; tetap perlu code review, validasi requirement, dan test otomatis/manual.",
+        explanation: "Tools AI coding biasanya membantu dengan memberi saran kode, mengisi boilerplate (kode dasar berulang), atau membuat draft fungsi dari deskripsi. Ini mempercepat kerja, terutama untuk tugas rutin. Namun hasilnya harus tetap diverifikasi: apakah sesuai requirement, aman, dan lolos test.",
       },
       {
         id: "ai3",
@@ -540,7 +540,7 @@ const sections = [
           "Claude Code menggantikan semua dependency dengan library terbaru",
         ],
         answer: 0,
-        explanation: "Keunggulan coding agent seperti Claude Code dibanding chat AI umum adalah kemampuannya bekerja langsung pada konteks engineering: membaca/mengubah file, mengeksekusi command, dan mengikuti alur task coding. Artinya, AI tidak hanya menjawab teori, tetapi dapat membantu eksekusi workflow pengembangan secara end-to-end.",
+        explanation: "Perbedaan utama coding agent dengan chat AI biasa adalah level aksinya. Chat AI cenderung menjawab teks, sedangkan coding agent bisa ikut bekerja di konteks proyek: membaca file, mengubah kode, dan menjalankan perintah terminal. Karena itu, agent lebih cocok untuk alur kerja coding end-to-end, bukan sekadar tanya-jawab konsep.",
       },
       {
         id: "ai4",
@@ -553,7 +553,7 @@ const sections = [
           "Menerjemahkan kode menjadi gambar UI",
         ],
         answer: 0,
-        explanation: "GitHub Copilot berfungsi sebagai AI pair programmer yang memberi autocomplete, saran implementasi fungsi, dan template berdasarkan konteks kode aktif. Fokus utamanya meningkatkan produktivitas penulisan kode, bukan menggantikan proses desain arsitektur, review, dan pengujian.",
+        explanation: "GitHub Copilot bekerja seperti pair programmer AI: memberi autocomplete, saran blok kode, dan contoh implementasi sesuai konteks file yang sedang dibuka. Ini sangat membantu produktivitas menulis kode harian. Tetapi keputusan arsitektur, validasi bisnis, dan quality assurance tetap peran developer.",
       },
       {
         id: "ai5",
@@ -566,7 +566,7 @@ const sections = [
           "Vibe coding membatasi software hanya bisa berjalan di browser",
         ],
         answer: 0,
-        explanation: "Risiko utama vibe coding adalah technical debt tersembunyi: kode tampak berjalan tetapi tidak dipahami tim, tidak konsisten dengan arsitektur, atau punya celah keamanan. Karena itu, output AI harus melalui standar engineering yang sama seperti kode manual: linting, testing, review, dan observabilitas yang memadai.",
+        explanation: "Risiko vibe coding muncul saat tim terlalu cepat menerima output AI tanpa memahami detailnya. Akibatnya bisa muncul technical debt (utang teknis): kode sulit dirawat, tidak konsisten, atau punya celah keamanan tersembunyi. Solusinya sama seperti kode manual: lakukan linting, testing, code review, dan dokumentasi yang cukup.",
       },
     ],
   },
@@ -583,6 +583,85 @@ const levelDescriptions = {
   deployment: { low: "Deployment & CI/CD masih asing", mid: "Konsep deployment cukup, perlu praktek CI/CD", high: "Deployment pipeline sudah paham" },
 };
 
+const termTooltips = {
+  "array": "Struktur data berbentuk daftar nilai berurutan, contoh: [1, 2, 3].",
+  "runtime": "Lingkungan tempat kode dijalankan, misalnya browser atau Node.js.",
+  "viewport": "Area layar yang terlihat user saat ini pada browser.",
+  "media query": "Aturan CSS yang aktif pada kondisi tertentu, misalnya lebar layar tertentu.",
+  "fluid layout": "Layout yang ukurannya fleksibel mengikuti ukuran layar, bukan ukuran tetap.",
+  "scope": "Area kode tempat variabel bisa diakses.",
+  "block scope": "Variabel hanya bisa diakses di dalam blok kurung kurawal { ... } tempat dideklarasikan.",
+  "function scope": "Variabel bisa diakses di seluruh isi fungsi tempat variabel dibuat.",
+  "mutability": "Kemampuan nilai/objek untuk diubah setelah dibuat.",
+  "variabel": "Tempat menyimpan nilai di dalam program, biasanya diberi nama.",
+  "promise": "Objek yang mewakili hasil operasi asynchronous yang akan selesai nanti (berhasil/gagal).",
+  "asynchronous": "Proses yang berjalan tanpa menghentikan proses utama aplikasi.",
+  "non-blocking": "Proses menunggu tidak membekukan keseluruhan aplikasi atau UI.",
+  "event loop": "Mekanisme JavaScript untuk memproses tugas asynchronous secara bergantian.",
+  "event": "Kejadian seperti klik, submit, ketik, atau scroll yang dapat ditangani kode.",
+  "event handler": "Fungsi yang dipanggil saat event tertentu terjadi.",
+  "dom": "Representasi dokumen HTML sebagai objek yang bisa dibaca/diubah lewat JavaScript.",
+  "node": "Satu elemen di tree DOM, bisa berupa tag HTML, teks, atau atribut.",
+  "tree": "Struktur hierarki seperti pohon: ada parent (induk) dan child (turunan).",
+  "objek": "Tipe data berisi pasangan kunci-nilai (property: value).",
+  "property": "Atribut atau field yang dimiliki sebuah objek.",
+  "inline": "Ditulis langsung di tempat pemakaian, tidak dipisah ke file lain.",
+  "src": "Atribut sumber file eksternal, misalnya script atau gambar.",
+  "compile": "Proses mengubah kode sumber menjadi bentuk lain sebelum dijalankan.",
+  "compile time": "Tahap pengecekan/kompilasi kode sebelum aplikasi dijalankan.",
+  "static typing": "Sistem tipe data yang dicek saat development sebelum runtime.",
+  "type mismatch": "Kondisi saat tipe data yang diberikan tidak sesuai tipe yang diharapkan.",
+  "string": "Tipe data teks, misalnya 'halo'.",
+  "number": "Tipe data angka, misalnya 42 atau 3.14.",
+  "boolean": "Tipe data logika dengan dua nilai: true atau false.",
+  "refactor": "Merapikan struktur kode tanpa mengubah perilaku fitur.",
+  "dependency": "Paket/library yang dibutuhkan aplikasi untuk berjalan.",
+  "dependencies": "Kumpulan paket yang dibutuhkan aplikasi saat runtime.",
+  "devdependencies": "Kumpulan paket yang dibutuhkan saat development.",
+  "devdependency": "Paket yang dibutuhkan saat development, bukan saat aplikasi production berjalan.",
+  "package.json": "File manifest proyek JavaScript berisi metadata, dependencies, dan scripts.",
+  "node_modules": "Folder tempat paket hasil install npm disimpan.",
+  "package-lock.json": "File yang mengunci versi detail paket agar instalasi konsisten.",
+  "linter": "Tool untuk memeriksa kualitas kode dan aturan gaya penulisan.",
+  "bundler": "Tool yang menggabungkan banyak file kode menjadi bundle siap pakai.",
+  "compiler": "Tool yang menerjemahkan kode dari satu bentuk ke bentuk lain.",
+  "hydration": "Proses mengaktifkan interaktivitas JavaScript pada HTML yang sudah dirender duluan.",
+  "use client": "Direktif Next.js agar komponen dieksekusi di browser (client-side).",
+  "client component": "Komponen yang berjalan di browser dan bisa memakai hooks/event.",
+  "server component": "Komponen yang dirender di server sebelum dikirim ke browser.",
+  "props": "Data yang dikirim dari komponen parent ke komponen child.",
+  "state": "Data internal komponen yang bisa berubah dan memicu render ulang.",
+  "reconciliation": "Proses React membandingkan perubahan untuk update DOM secara efisien.",
+  "ssr": "Server-Side Rendering: HTML dibuat di server sebelum dikirim ke browser.",
+  "seo": "Search Engine Optimization: optimasi agar halaman mudah ditemukan mesin pencari.",
+  "repository": "Tempat penyimpanan project dan histori perubahannya.",
+  "commit": "Snapshot perubahan kode pada satu titik waktu.",
+  "branch": "Cabang kerja terpisah dari branch utama.",
+  "merge": "Menggabungkan perubahan dari satu branch ke branch lain.",
+  "rebase": "Memindahkan basis histori commit agar linier/rapi.",
+  "staging area": "Area sementara untuk memilih perubahan sebelum commit.",
+  "origin": "Nama default remote repository pada Git.",
+  "backward compatibility": "Menjaga perilaku lama agar kode versi sebelumnya tidak rusak.",
+  "technical debt": "Konsekuensi jangka panjang dari keputusan cepat yang membuat kode lebih sulit dirawat.",
+  "linting": "Pemeriksaan otomatis kualitas/aturan gaya kode.",
+  "code review": "Proses meninjau kode oleh developer lain sebelum digabungkan.",
+  "boilerplate": "Kode dasar berulang yang biasanya jadi kerangka awal.",
+  "yaml": "Format teks untuk konfigurasi terstruktur, sering dipakai di CI/CD.",
+  "workflow": "Urutan proses otomatis yang didefinisikan dalam CI/CD.",
+  "quality gate": "Syarat kualitas yang harus lolos sebelum lanjut tahap berikutnya.",
+  "environment variable": "Konfigurasi dari luar kode, misalnya API key atau URL database.",
+  "production": "Lingkungan aplikasi yang dipakai user nyata.",
+  "staging": "Lingkungan uji sebelum aplikasi dirilis ke production.",
+  "build": "Proses menyiapkan kode menjadi paket siap deploy.",
+  "deploy": "Proses merilis aplikasi ke server/platform agar bisa diakses user.",
+  "ci/cd": "Otomatisasi build, test, dan rilis aplikasi.",
+  "pipeline": "Rangkaian tahap otomatis dari build, test, sampai deploy.",
+  "api": "Application Programming Interface, antarmuka komunikasi antar sistem/aplikasi.",
+  "edge cases": "Kondisi khusus/ekstrem yang jarang terjadi tetapi tetap harus ditangani.",
+};
+
+const PRETEST_STORAGE_KEY = "wd.pretest.progress.v1";
+
 export default function Pretest() {
   const [phase, setPhase] = useState("intro"); // intro | quiz | result
   const [currentSection, setCurrentSection] = useState(0);
@@ -592,6 +671,9 @@ export default function Pretest() {
   const [revealed, setRevealed] = useState(false);
   const [scores, setScores] = useState({});
   const [animateIn, setAnimateIn] = useState(true);
+  const [activeTerm, setActiveTerm] = useState(null);
+  const [hasLoadedProgress, setHasLoadedProgress] = useState(false);
+  const [resetNotice, setResetNotice] = useState("");
 
   const shuffleArray = (items) => {
     const result = [...items];
@@ -628,6 +710,86 @@ export default function Pretest() {
   const totalQuestions = shuffledSections.reduce((a, s) => a + s.questions.length, 0);
   const answeredCount = Object.keys(answers).length;
 
+  useEffect(() => {
+    try {
+      const savedRaw = localStorage.getItem(PRETEST_STORAGE_KEY);
+      if (!savedRaw) {
+        setHasLoadedProgress(true);
+        return;
+      }
+
+      const saved = JSON.parse(savedRaw);
+      if (saved && typeof saved === "object") {
+        if (["intro", "quiz", "result"].includes(saved.phase)) setPhase(saved.phase);
+        if (Number.isInteger(saved.currentSection)) {
+          const safeSection = Math.max(0, Math.min(saved.currentSection, shuffledSections.length - 1));
+          setCurrentSection(safeSection);
+        }
+        if (Number.isInteger(saved.currentQ)) {
+          const sectionLength =
+            shuffledSections[Math.max(0, Math.min(saved.currentSection ?? 0, shuffledSections.length - 1))]?.questions
+              ?.length ?? 1;
+          const safeQ = Math.max(0, Math.min(saved.currentQ, sectionLength - 1));
+          setCurrentQ(safeQ);
+        }
+        if (saved.answers && typeof saved.answers === "object") setAnswers(saved.answers);
+        if (saved.scores && typeof saved.scores === "object") setScores(saved.scores);
+      }
+    } catch (_) {
+      // Ignore invalid persisted payloads and continue with defaults.
+    } finally {
+      setHasLoadedProgress(true);
+    }
+  }, [shuffledSections]);
+
+  useEffect(() => {
+    if (!hasLoadedProgress) return;
+    try {
+      const payload = {
+        phase,
+        currentSection,
+        currentQ,
+        answers,
+        scores,
+      };
+      localStorage.setItem(PRETEST_STORAGE_KEY, JSON.stringify(payload));
+    } catch (_) {
+      // Ignore storage failures in constrained browser modes.
+    }
+  }, [hasLoadedProgress, phase, currentSection, currentQ, answers, scores]);
+
+  useEffect(() => {
+    if (!resetNotice) return;
+    const timer = setTimeout(() => setResetNotice(""), 2500);
+    return () => clearTimeout(timer);
+  }, [resetNotice]);
+
+  function handleGoHome() {
+    setPhase("intro");
+    setSelected(null);
+    setRevealed(false);
+    setActiveTerm(null);
+  }
+
+  function handleResetProgress() {
+    try {
+      localStorage.removeItem(PRETEST_STORAGE_KEY);
+    } catch (_) {
+      // Ignore storage errors and still reset in-memory state.
+    }
+
+    setPhase("intro");
+    setCurrentSection(0);
+    setCurrentQ(0);
+    setAnswers({});
+    setScores({});
+    setSelected(null);
+    setRevealed(false);
+    setAnimateIn(true);
+    setActiveTerm(null);
+    setResetNotice("Progress sudah direset!");
+  }
+
   function handleSelect(idx) {
     if (revealed) return;
     setSelected(idx);
@@ -638,6 +800,7 @@ export default function Pretest() {
 
   function handleNext() {
     setAnimateIn(false);
+    setActiveTerm(null);
     setTimeout(() => {
       const nextQ = currentQ + 1;
       if (nextQ < section.questions.length) {
@@ -677,6 +840,181 @@ export default function Pretest() {
   const getLevelLabel = (pct) => (pct >= 75 ? "Solid ✓" : pct >= 40 ? "Cukup ~" : "Perlu Belajar ✗");
   const getLevelColor = (pct) => (pct >= 75 ? "#00d4aa" : pct >= 40 ? "#ffd60a" : "#ff6b6b");
 
+  const tooltipPattern = useMemo(() => {
+    const keys = Object.keys(termTooltips)
+      .sort((a, b) => b.length - a.length)
+      .map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+    return new RegExp(`(^|[^A-Za-z0-9_])(${keys.join("|")})(?=$|[^A-Za-z0-9_])`, "gi");
+  }, []);
+
+  const renderExplanationWithTooltips = (text) => {
+    const nodes = [];
+    let lastIndex = 0;
+    let nodeIndex = 0;
+    let match;
+
+    tooltipPattern.lastIndex = 0;
+    while ((match = tooltipPattern.exec(text)) !== null) {
+      const matchStart = match.index;
+      const fullMatch = match[0];
+      const leadingBoundary = match[1] || "";
+      const termText = match[2];
+      const leadingLength = leadingBoundary.length;
+      const termStart = matchStart + leadingLength;
+
+      if (lastIndex < matchStart) {
+        nodes.push(<span key={`exp-${nodeIndex++}`}>{text.slice(lastIndex, matchStart)}</span>);
+      }
+
+      if (leadingBoundary) {
+        nodes.push(<span key={`exp-${nodeIndex++}`}>{leadingBoundary}</span>);
+      }
+
+      const termDefinition = termTooltips[termText.toLowerCase()];
+      if (termDefinition) {
+        nodes.push(
+          <button
+            key={`exp-${nodeIndex++}`}
+            type="button"
+            style={styles.tooltipTermButton}
+            title={termDefinition}
+            aria-label={`${termText}: ${termDefinition}`}
+            onClick={() =>
+              setActiveTerm((prev) =>
+                prev?.term === termText ? null : { term: termText, definition: termDefinition },
+              )
+            }
+          >
+            {termText}
+          </button>,
+        );
+      } else {
+        nodes.push(<span key={`exp-${nodeIndex++}`}>{termText}</span>);
+      }
+
+      lastIndex = termStart + termText.length;
+
+      if (tooltipPattern.lastIndex === matchStart) {
+        tooltipPattern.lastIndex += fullMatch.length || 1;
+      }
+    }
+
+    if (lastIndex < text.length) {
+      nodes.push(<span key={`exp-${nodeIndex++}`}>{text.slice(lastIndex)}</span>);
+    }
+
+    return nodes;
+  };
+
+  const csvEscape = (value) => {
+    const asString = `${value ?? ""}`;
+    return `"${asString.replace(/"/g, '""')}"`;
+  };
+
+  const toCsvLine = (items) => items.map(csvEscape).join(",");
+
+  const downloadTextFile = (filename, content, mimeType = "text/csv;charset=utf-8;") => {
+    const blob = new Blob([content], { type: mimeType });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = filename;
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
+    URL.revokeObjectURL(url);
+  };
+
+  const handleExportResults = () => {
+    const now = new Date();
+    const ts = now.toISOString();
+    const lines = [];
+
+    lines.push(toCsvLine(["SUMMARY"]));
+    lines.push(toCsvLine(["exported_at", ts]));
+    lines.push(toCsvLine(["overall_score", `${overallScore}/${overallTotal}`]));
+    lines.push(toCsvLine(["overall_percent", `${overallPct}%`]));
+    lines.push("");
+
+    lines.push(toCsvLine(["SECTION_ANALYTICS"]));
+    lines.push(
+      toCsvLine([
+        "section_id",
+        "section_title",
+        "score",
+        "total",
+        "percent",
+        "level_label",
+        "recommendation",
+      ]),
+    );
+    sections.forEach((sectionItem) => {
+      const sc = scores[sectionItem.id] || { score: 0, total: sectionItem.questions.length, pct: 0 };
+      const level = getLevel(sc.pct);
+      lines.push(
+        toCsvLine([
+          sectionItem.id,
+          sectionItem.title,
+          sc.score,
+          sc.total,
+          Math.round(sc.pct),
+          getLevelLabel(sc.pct),
+          levelDescriptions[sectionItem.id][level],
+        ]),
+      );
+    });
+    lines.push("");
+
+    lines.push(toCsvLine(["QUESTION_DETAILS"]));
+    lines.push(
+      toCsvLine([
+        "section_id",
+        "section_title",
+        "question_id",
+        "question_text",
+        "selected_option_index",
+        "selected_option_text",
+        "correct_option_index",
+        "correct_option_text",
+        "is_correct",
+        "explanation",
+      ]),
+    );
+
+    shuffledSections.forEach((sectionItem) => {
+      sectionItem.questions.forEach((questionItem) => {
+        const answerItem = answers[questionItem.id] || {};
+        const selectedIndex = Number.isInteger(answerItem.selected) ? answerItem.selected : "";
+        const selectedText = Number.isInteger(answerItem.selected)
+          ? questionItem.options[answerItem.selected] || ""
+          : "";
+        const correctIndex = questionItem.answer;
+        const correctText = questionItem.options[questionItem.answer] || "";
+        lines.push(
+          toCsvLine([
+            sectionItem.id,
+            sectionItem.title,
+            questionItem.id,
+            questionItem.text,
+            selectedIndex,
+            selectedText,
+            correctIndex,
+            correctText,
+            answerItem.correct ? "TRUE" : "FALSE",
+            questionItem.explanation,
+          ]),
+        );
+      });
+    });
+
+    const fileSafeDate = ts.replace(/[:.]/g, "-");
+    downloadTextFile(`hasil-pretest-${fileSafeDate}.csv`, lines.join("\n"));
+  };
+
+  const whatsappMessage = `Halo Ade, saya sudah menyelesaikan pretest web dev dengan skor ${overallPct}% (${overallScore}/${overallTotal}). Saya akan kirim file export CSV hasil pretest sebagai lampiran.`;
+  const whatsappLink = `https://wa.me/6282228471559?text=${encodeURIComponent(whatsappMessage)}`;
+  const resetButtonLabel = resetNotice ? "PROGRESS SUDAH DIRESET!" : "RESET PROGRESS";
+
   const styles = {
     root: {
       minHeight: "100vh",
@@ -710,6 +1048,40 @@ export default function Pretest() {
       color: "#00d4aa",
       letterSpacing: "2px",
       fontWeight: "700",
+    },
+    headerHomeGroup: {
+      display: "flex",
+      alignItems: "center",
+      gap: "10px",
+      flexWrap: "wrap",
+    },
+    logoButton: {
+      fontSize: "14px",
+      color: "#00d4aa",
+      letterSpacing: "2px",
+      fontWeight: "700",
+      background: "transparent",
+      border: "none",
+      padding: 0,
+      margin: 0,
+      cursor: "pointer",
+      textAlign: "left",
+    },
+    logoHint: {
+      fontSize: "11px",
+      color: "#5e8f83",
+      letterSpacing: "0.5px",
+    },
+    logoHintButton: {
+      fontSize: "11px",
+      color: "#5e8f83",
+      letterSpacing: "0.5px",
+      background: "transparent",
+      border: "none",
+      padding: 0,
+      margin: 0,
+      cursor: "pointer",
+      textAlign: "left",
     },
     progressBar: {
       height: "3px",
@@ -778,6 +1150,17 @@ export default function Pretest() {
       letterSpacing: "2px",
       textTransform: "uppercase",
       transition: "all 0.2s",
+    },
+    resetBtn: {
+      background: "transparent",
+      color: "#9aa3a5",
+      border: "1px solid #2a2f33",
+      borderRadius: "8px",
+      padding: "10px 14px",
+      fontSize: "12px",
+      fontWeight: "700",
+      cursor: "pointer",
+      letterSpacing: "0.5px",
     },
     sectionBadge: {
       display: "inline-flex",
@@ -861,6 +1244,33 @@ export default function Pretest() {
       color: "#7ecbb0",
       lineHeight: "1.7",
     },
+    tooltipTermButton: {
+      background: "transparent",
+      border: "none",
+      padding: 0,
+      margin: 0,
+      font: "inherit",
+      lineHeight: "inherit",
+      textAlign: "left",
+      borderBottom: "1px dashed #00d4aa99",
+      cursor: "help",
+      color: "#b4f5e0",
+    },
+    tooltipHint: {
+      marginTop: "10px",
+      color: "#6fae98",
+      fontSize: "11px",
+    },
+    tooltipPanel: {
+      marginTop: "10px",
+      padding: "10px 12px",
+      borderRadius: "8px",
+      background: "#101d19",
+      border: "1px solid #00d4aa33",
+      color: "#bde7d9",
+      fontSize: "12px",
+      lineHeight: "1.6",
+    },
     nextBtn: {
       marginTop: "24px",
       background: "#00d4aa",
@@ -922,6 +1332,35 @@ export default function Pretest() {
       padding: "20px",
       marginTop: "24px",
     },
+    actionRow: {
+      display: "flex",
+      flexWrap: "wrap",
+      gap: "10px",
+      marginTop: "16px",
+    },
+    exportBtn: {
+      background: "linear-gradient(135deg, #00d4aa, #00a0c8)",
+      color: "#001018",
+      border: "none",
+      borderRadius: "8px",
+      padding: "10px 14px",
+      fontSize: "12px",
+      fontWeight: "700",
+      cursor: "pointer",
+      letterSpacing: "0.5px",
+    },
+    waBtn: {
+      background: "#1f1f1f",
+      color: "#8be2bf",
+      border: "1px solid #2d5a4b",
+      borderRadius: "8px",
+      padding: "10px 14px",
+      fontSize: "12px",
+      fontWeight: "700",
+      textDecoration: "none",
+      display: "inline-flex",
+      alignItems: "center",
+    },
     tag: (color) => ({
       display: "inline-block",
       background: `${color}22`,
@@ -935,6 +1374,15 @@ export default function Pretest() {
     }),
   };
 
+  const resetButtonStyle = resetNotice
+    ? {
+        ...styles.resetBtn,
+        background: "#0d3327",
+        border: "1px solid #27c28a",
+        color: "#9df0cf",
+      }
+    : styles.resetBtn;
+
   const renderIntro = () => (
     <div style={styles.intro}>
       <div style={{ fontSize: "48px", marginBottom: "16px" }}>🧪</div>
@@ -944,7 +1392,8 @@ export default function Pretest() {
         Kerjakan sesuai pemahaman saat ini — tidak ada yang benar atau salah secara absolut.
         Hasil pretest ini digunakan untuk menyusun modul belajar yang sesuai dengan kebutuhanmu.
         <br /><br />
-        Topik yang diuji: Web Fundamentals · JavaScript · TypeScript · Git · Node.js/NPM · React/Next.js · SQL/Database · Deployment & CI/CD
+        Topik yang diuji: Web Fundamentals · JavaScript · TypeScript · Git · Node.js/NPM · React/Next.js · SQL/Database · Deployment & CI/CD.
+        Setelah selesai, export hasil pretest lalu kirim ke Ade melalui WhatsApp.
       </p>
       <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", justifyContent: "center", marginBottom: "40px" }}>
         {sections.map((s) => (
@@ -956,6 +1405,11 @@ export default function Pretest() {
       <button style={styles.startBtn} onClick={() => setPhase("quiz")}>
         MULAI PRETEST →
       </button>
+      <div style={{ marginTop: "14px" }}>
+        <button type="button" style={resetButtonStyle} onClick={handleResetProgress}>
+          {resetButtonLabel}
+        </button>
+      </div>
     </div>
   );
 
@@ -983,7 +1437,13 @@ export default function Pretest() {
       </div>
       {revealed && (
         <div style={styles.explanation}>
-          💡 <strong>Penjelasan:</strong> {question.explanation}
+          💡 <strong>Penjelasan:</strong> {renderExplanationWithTooltips(question.explanation)}
+          <div style={styles.tooltipHint}>Tip: hover (desktop) atau tap (mobile) istilah bergaris putus-putus untuk melihat definisi.</div>
+          {activeTerm && (
+            <div style={styles.tooltipPanel}>
+              <strong>{activeTerm.term}</strong>: {activeTerm.definition}
+            </div>
+          )}
         </div>
       )}
       {revealed && (
@@ -1054,8 +1514,14 @@ export default function Pretest() {
         </div>
         <div style={{ marginTop: "20px", padding: "16px", background: "#111", borderRadius: "8px", fontSize: "12px", color: "#555", lineHeight: "1.8" }}>
           <strong style={{ color: "#aaa" }}>📤 Langkah Selanjutnya:</strong><br />
-          Screenshot / share hasil ini ke mentor kamu.<br />
-          Hasil ini akan digunakan untuk menyusun modul belajar yang tailored ke kebutuhanmu.
+          1) Klik tombol export untuk mengunduh hasil lengkap (CSV).<br />
+          2) Kirim file CSV itu ke Ade via WhatsApp: <strong style={{ color: "#8be2bf" }}>wa.me/6282228471559</strong>.<br />
+          3) Sertakan catatan singkat jika ada topik yang paling ingin dipelajari dulu.
+          <div style={styles.actionRow}>
+            <button style={styles.exportBtn} onClick={handleExportResults}>EXPORT HASIL PRETEST (CSV)</button>
+            <a href={whatsappLink} target="_blank" rel="noreferrer" style={styles.waBtn}>KIRIM KE ADE VIA WHATSAPP</a>
+            <button type="button" style={resetButtonStyle} onClick={handleResetProgress}>{resetButtonLabel}</button>
+          </div>
         </div>
       </div>
     </div>
@@ -1064,7 +1530,14 @@ export default function Pretest() {
   return (
     <div style={styles.root}>
       <div style={styles.header}>
-        <div style={styles.logo}>WD.PRETEST</div>
+        <div style={styles.headerHomeGroup}>
+          <button type="button" style={styles.logoButton} onClick={handleGoHome}>
+            WD.PRETEST
+          </button>
+          <button type="button" style={styles.logoHintButton} onClick={handleGoHome}>
+            klik/tap untuk kembali ke layar awal
+          </button>
+        </div>
         {phase === "quiz" && (
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             <div style={{ fontSize: "11px", color: "#444" }}>{Math.round(progress)}%</div>
