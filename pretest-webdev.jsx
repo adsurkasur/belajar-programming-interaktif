@@ -1035,15 +1035,15 @@ export default function Pretest() {
       width: "100%",
       maxWidth: "100vw",
       boxSizing: "border-box",
-      background: "#0d0d0d",
+      background: "radial-gradient(circle at 22% 0%, #2a2019 0%, #1d1815 38%, #131110 100%)",
       fontFamily: "'Plus Jakarta Sans', 'Segoe UI Variable', 'Segoe UI', 'Helvetica Neue', sans-serif",
-      color: "#e0e0e0",
+      color: "#f1e8df",
       padding: "0 12px 24px",
       overflowX: "hidden",
     },
     header: {
-      background: "linear-gradient(135deg, #111 0%, #1a1a2e 100%)",
-      borderBottom: "1px solid #222",
+      background: "linear-gradient(135deg, #241b16 0%, #2b201a 100%)",
+      borderBottom: "1px solid #4a352a",
       padding: "16px 24px",
       display: "flex",
       flexWrap: "wrap",
@@ -1070,9 +1070,9 @@ export default function Pretest() {
       flexWrap: "wrap",
     },
     logoButton: {
-      fontSize: "14px",
-      color: "#00d4aa",
-      letterSpacing: "2px",
+      fontSize: "15px",
+      color: "#ffbd7a",
+      letterSpacing: "1.6px",
       fontWeight: "700",
       background: "transparent",
       border: "none",
@@ -1087,9 +1087,9 @@ export default function Pretest() {
       letterSpacing: "0.5px",
     },
     logoHintButton: {
-      fontSize: "11px",
-      color: "#5e8f83",
-      letterSpacing: "0.5px",
+      fontSize: "12px",
+      color: "#efd4bf",
+      letterSpacing: "0.3px",
       background: "transparent",
       border: "none",
       padding: 0,
@@ -1098,80 +1098,78 @@ export default function Pretest() {
       textAlign: "left",
     },
     progressBar: {
-      height: "3px",
-      background: "#222",
-      borderRadius: "2px",
+      height: "6px",
+      background: "#4a352a",
+      borderRadius: "999px",
       overflow: "hidden",
-      width: "200px",
+      width: "220px",
     },
     progressFill: {
       height: "100%",
-      background: "linear-gradient(90deg, #00d4aa, #7c3aed)",
+      background: "linear-gradient(90deg, #ffb869, #ff7e62)",
       transition: "width 0.5s ease",
       width: `${progress}%`,
-      borderRadius: "2px",
+      borderRadius: "999px",
     },
     main: {
-      maxWidth: "760px",
+      maxWidth: "880px",
       margin: "0 auto",
-      padding: "32px 24px",
+      padding: "40px 24px",
     },
     card: {
-      background: "#111",
-      border: "1px solid #1f1f1f",
-      borderRadius: "12px",
-      padding: "32px",
+      background: "linear-gradient(180deg, #221a15 0%, #1b1613 100%)",
+      border: "1px solid #4b372b",
+      borderRadius: "16px",
+      padding: "36px",
       marginBottom: "16px",
+      boxShadow: "0 12px 30px rgba(0, 0, 0, 0.32)",
     },
     intro: {
       textAlign: "center",
       padding: "48px 32px",
     },
     introTitle: {
-      fontSize: "32px",
+      fontSize: "40px",
       fontWeight: "900",
       letterSpacing: "-1px",
       marginBottom: "8px",
-      background: "linear-gradient(135deg, #00d4aa, #7c3aed)",
-      WebkitBackgroundClip: "text",
-      WebkitTextFillColor: "transparent",
-      backgroundClip: "text",
+      color: "#ffd8a7",
     },
     introSub: {
-      color: "#666",
-      fontSize: "13px",
-      letterSpacing: "3px",
+      color: "#e6c7b1",
+      fontSize: "14px",
+      letterSpacing: "2px",
       marginBottom: "32px",
       textTransform: "uppercase",
     },
     introDesc: {
-      color: "#aaa",
-      lineHeight: "1.8",
+      color: "#e4d4c7",
+      lineHeight: "1.9",
       marginBottom: "40px",
-      fontSize: "14px",
-      maxWidth: "540px",
+      fontSize: "16px",
+      maxWidth: "680px",
       margin: "0 auto 40px",
     },
     startBtn: {
-      background: "linear-gradient(135deg, #00d4aa, #0099cc)",
-      color: "#000",
+      background: "linear-gradient(135deg, #ffb96f, #ff8a66)",
+      color: "#26160f",
       border: "none",
-      borderRadius: "8px",
-      padding: "14px 40px",
-      fontSize: "14px",
+      borderRadius: "10px",
+      padding: "15px 42px",
+      fontSize: "15px",
       fontWeight: "700",
       cursor: "pointer",
-      letterSpacing: "2px",
+      letterSpacing: "1.3px",
       textTransform: "uppercase",
-      transition: "all 0.2s",
+      transition: "all 0.22s",
     },
     resetBtn: {
       background: "transparent",
-      color: "#9aa3a5",
-      border: "1px solid #2a2f33",
-      borderRadius: "8px",
-      padding: "10px 14px",
-      fontSize: "12px",
+      color: "#f0ddcf",
+      border: "1px solid #7a5642",
+      borderRadius: "10px",
+      padding: "11px 15px",
+      fontSize: "13px",
       fontWeight: "700",
       cursor: "pointer",
       letterSpacing: "0.5px",
@@ -1180,26 +1178,26 @@ export default function Pretest() {
       display: "inline-flex",
       alignItems: "center",
       gap: "8px",
-      background: "#1a1a1a",
+      background: "#2a2019",
       border: `1px solid ${section?.color || "#333"}22`,
       borderRadius: "20px",
-      padding: "6px 14px",
-      fontSize: "12px",
-      color: section?.color || "#aaa",
+      padding: "7px 14px",
+      fontSize: "13px",
+      color: section?.color || "#f0ddcf",
       marginBottom: "24px",
       letterSpacing: "1px",
     },
     qNum: {
-      fontSize: "11px",
-      color: "#444",
+      fontSize: "12px",
+      color: "#e3c9b6",
       marginBottom: "12px",
       letterSpacing: "1px",
     },
     qText: {
-      fontSize: "16px",
-      lineHeight: "1.7",
+      fontSize: "19px",
+      lineHeight: "1.8",
       marginBottom: "28px",
-      color: "#e8e8e8",
+      color: "#fff2e8",
       whiteSpace: "pre-line",
     },
     options: {
@@ -1208,55 +1206,55 @@ export default function Pretest() {
       gap: "10px",
     },
     optionBtn: (idx) => {
-      let bg = "#181818";
-      let border = "#2a2a2a";
-      let color = "#ccc";
+      let bg = "#2a201a";
+      let border = "#584131";
+      let color = "#f0dfd2";
       if (revealed) {
-        if (idx === question.answer) { bg = "#003d2e"; border = "#00d4aa"; color = "#00d4aa"; }
-        else if (idx === selected && idx !== question.answer) { bg = "#2d1515"; border = "#ff6b6b"; color = "#ff6b6b"; }
-        else { bg = "#141414"; border = "#1f1f1f"; color = "#555"; }
+        if (idx === question.answer) { bg = "#2f2615"; border = "#ffb869"; color = "#ffd9aa"; }
+        else if (idx === selected && idx !== question.answer) { bg = "#3a1f1b"; border = "#ff8b77"; color = "#ffb2a6"; }
+        else { bg = "#211916"; border = "#5c4335"; color = "#dbc5b3"; }
       } else if (selected === idx) {
-        bg = "#1a1a35"; border = "#7c3aed"; color = "#a78bfa";
+        bg = "#35251f"; border = "#f0a86a"; color = "#ffd8b1";
       }
       return {
         background: bg,
         border: `1px solid ${border}`,
-        borderRadius: "8px",
-        padding: "14px 16px",
+        borderRadius: "10px",
+        padding: "16px 18px",
         textAlign: "left",
         cursor: revealed ? "default" : "pointer",
         color,
-        fontSize: "13px",
-        lineHeight: "1.5",
+        fontSize: "15px",
+        lineHeight: "1.6",
         transition: "all 0.2s",
         display: "flex",
         alignItems: "flex-start",
-        gap: "10px",
+        gap: "12px",
       };
     },
     optionLabel: (idx) => ({
       flexShrink: 0,
-      width: "20px",
-      height: "20px",
+      width: "22px",
+      height: "22px",
       borderRadius: "50%",
-      background: revealed && idx === question?.answer ? "#00d4aa" : "#2a2a2a",
+      background: revealed && idx === question?.answer ? "#ffb869" : "#5a4032",
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      fontSize: "10px",
+      fontSize: "11px",
       fontWeight: "700",
-      color: revealed && idx === question?.answer ? "#000" : "#666",
+      color: revealed && idx === question?.answer ? "#2f1b11" : "#e2cfc0",
       marginTop: "1px",
     }),
     explanation: {
-      background: "#0a1a15",
-      border: "1px solid #00d4aa22",
-      borderRadius: "8px",
-      padding: "16px",
+      background: "#2b2119",
+      border: "1px solid #7f5a43",
+      borderRadius: "10px",
+      padding: "18px",
       marginTop: "16px",
-      fontSize: "13px",
-      color: "#7ecbb0",
-      lineHeight: "1.7",
+      fontSize: "15px",
+      color: "#f5e4d7",
+      lineHeight: "1.85",
     },
     tooltipTermButton: {
       background: "transparent",
@@ -1266,33 +1264,33 @@ export default function Pretest() {
       font: "inherit",
       lineHeight: "inherit",
       textAlign: "left",
-      borderBottom: "1px dashed #00d4aa99",
+      borderBottom: "1px dashed #ffb474",
       cursor: "help",
-      color: "#b4f5e0",
+      color: "#ffe4c8",
     },
     tooltipHint: {
       marginTop: "10px",
-      color: "#6fae98",
-      fontSize: "11px",
+      color: "#f0cfb4",
+      fontSize: "12px",
     },
     tooltipPanel: {
       marginTop: "10px",
-      padding: "10px 12px",
-      borderRadius: "8px",
-      background: "#101d19",
-      border: "1px solid #00d4aa33",
-      color: "#bde7d9",
-      fontSize: "12px",
-      lineHeight: "1.6",
+      padding: "12px 14px",
+      borderRadius: "10px",
+      background: "#32261f",
+      border: "1px solid #8d6248",
+      color: "#ffe7d1",
+      fontSize: "13px",
+      lineHeight: "1.7",
     },
     nextBtn: {
       marginTop: "24px",
-      background: "#00d4aa",
-      color: "#000",
+      background: "linear-gradient(135deg, #ffb96f, #ff8763)",
+      color: "#2b1a12",
       border: "none",
-      borderRadius: "8px",
-      padding: "12px 28px",
-      fontSize: "13px",
+      borderRadius: "10px",
+      padding: "13px 30px",
+      fontSize: "14px",
       fontWeight: "700",
       cursor: "pointer",
       letterSpacing: "1px",
@@ -1302,32 +1300,32 @@ export default function Pretest() {
     resultHeader: {
       textAlign: "center",
       padding: "32px 0",
-      borderBottom: "1px solid #1f1f1f",
+      borderBottom: "1px solid #4b372b",
       marginBottom: "32px",
     },
     bigScore: {
       fontSize: "72px",
       fontWeight: "900",
       background: overallPct >= 75
-        ? "linear-gradient(135deg, #00d4aa, #00cc88)"
+        ? "linear-gradient(135deg, #ffc47a, #ff9567)"
         : overallPct >= 40
-        ? "linear-gradient(135deg, #ffd60a, #ff9500)"
-        : "linear-gradient(135deg, #ff6b6b, #cc0000)",
+        ? "linear-gradient(135deg, #ffd689, #ffac72)"
+        : "linear-gradient(135deg, #ff9c84, #ff6c6c)",
       WebkitBackgroundClip: "text",
       WebkitTextFillColor: "transparent",
       backgroundClip: "text",
       lineHeight: 1,
     },
     sectionResult: {
-      background: "#111",
-      border: "1px solid #1f1f1f",
-      borderRadius: "10px",
-      padding: "20px",
+      background: "#261d18",
+      border: "1px solid #503b2e",
+      borderRadius: "12px",
+      padding: "22px",
       marginBottom: "12px",
     },
     sectionResultBar: (pct, color) => ({
-      height: "4px",
-      background: "#1f1f1f",
+      height: "6px",
+      background: "#4a352a",
       borderRadius: "2px",
       overflow: "hidden",
       marginTop: "8px",
@@ -1340,10 +1338,10 @@ export default function Pretest() {
       transition: "width 1s ease",
     }),
     recommendation: {
-      background: "#0a0a1a",
-      border: "1px solid #7c3aed33",
-      borderRadius: "10px",
-      padding: "20px",
+      background: "#2a1f19",
+      border: "1px solid #5e4333",
+      borderRadius: "12px",
+      padding: "22px",
       marginTop: "24px",
     },
     actionRow: {
@@ -1353,23 +1351,23 @@ export default function Pretest() {
       marginTop: "16px",
     },
     exportBtn: {
-      background: "linear-gradient(135deg, #00d4aa, #00a0c8)",
-      color: "#001018",
+      background: "linear-gradient(135deg, #ffb86e, #ff8a66)",
+      color: "#2c1a12",
       border: "none",
-      borderRadius: "8px",
-      padding: "10px 14px",
-      fontSize: "12px",
+      borderRadius: "10px",
+      padding: "11px 15px",
+      fontSize: "13px",
       fontWeight: "700",
       cursor: "pointer",
       letterSpacing: "0.5px",
     },
     waBtn: {
-      background: "#1f1f1f",
-      color: "#8be2bf",
-      border: "1px solid #2d5a4b",
-      borderRadius: "8px",
-      padding: "10px 14px",
-      fontSize: "12px",
+      background: "#2a211b",
+      color: "#ffe7cf",
+      border: "1px solid #8a624c",
+      borderRadius: "10px",
+      padding: "11px 15px",
+      fontSize: "13px",
       fontWeight: "700",
       textDecoration: "none",
       display: "inline-flex",
@@ -1382,7 +1380,7 @@ export default function Pretest() {
       color,
       borderRadius: "4px",
       padding: "2px 8px",
-      fontSize: "11px",
+      fontSize: "12px",
       fontWeight: "700",
       letterSpacing: "1px",
     }),
@@ -1391,15 +1389,15 @@ export default function Pretest() {
   const resetButtonStyle = resetNotice
     ? {
         ...styles.resetBtn,
-        background: "#0d3327",
-        border: "1px solid #27c28a",
-        color: "#9df0cf",
+        background: "#4a2f1f",
+        border: "1px solid #f0a968",
+        color: "#ffd9ad",
       }
     : styles.resetBtn;
 
   const renderIntro = () => (
     <div style={styles.intro}>
-      <div style={{ fontSize: "48px", marginBottom: "16px" }}>🧪</div>
+      <div style={{ fontSize: "56px", marginBottom: "16px" }}>🧪</div>
       <div style={styles.introTitle}>Web Dev Pretest</div>
       <div style={styles.introSub}>Baseline Assessment · {totalQuestions} Soal · ~15 Menit</div>
       <p style={styles.introDesc}>
@@ -1409,9 +1407,9 @@ export default function Pretest() {
         Topik yang diuji: Web Fundamentals · JavaScript · TypeScript · Git · Node.js/NPM · React/Next.js · SQL/Database · Deployment & CI/CD.
         Setelah selesai, export hasil pretest lalu kirim ke Ade melalui WhatsApp.
       </p>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", justifyContent: "center", marginBottom: "40px" }}>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", justifyContent: "center", marginBottom: "40px" }}>
         {sections.map((s) => (
-          <span key={s.id} style={{ background: `${s.color}15`, border: `1px solid ${s.color}33`, color: s.color, borderRadius: "16px", padding: "4px 12px", fontSize: "12px" }}>
+          <span key={s.id} style={{ background: `${s.color}1a`, border: `1px solid ${s.color}40`, color: s.color, borderRadius: "18px", padding: "5px 12px", fontSize: "13px" }}>
             {s.icon} {s.title}
           </span>
         ))}
@@ -1431,7 +1429,7 @@ export default function Pretest() {
     <div style={{ opacity: animateIn ? 1 : 0, transition: "opacity 0.2s", transform: animateIn ? "translateY(0)" : "translateY(10px)" }}>
       <div style={styles.sectionBadge}>
         {section.icon} {section.title}
-        <span style={{ color: "#444", marginLeft: "4px" }}>
+        <span style={{ color: "#b89d89", marginLeft: "4px" }}>
           · {currentQ + 1}/{section.questions.length}
         </span>
       </div>
@@ -1475,18 +1473,18 @@ export default function Pretest() {
   const renderResult = () => (
     <div>
       <div style={styles.resultHeader}>
-        <div style={{ fontSize: "13px", color: "#555", letterSpacing: "2px", marginBottom: "16px" }}>HASIL PRETEST</div>
+        <div style={{ fontSize: "14px", color: "#d0b29d", letterSpacing: "1.8px", marginBottom: "16px" }}>HASIL PRETEST</div>
         <div style={styles.bigScore}>{overallPct}%</div>
-        <div style={{ fontSize: "14px", color: "#666", marginTop: "8px" }}>
+        <div style={{ fontSize: "16px", color: "#e2ccbc", marginTop: "10px" }}>
           {overallScore} / {overallTotal} soal benar
         </div>
-        <div style={{ marginTop: "16px", fontSize: "14px", color: overallPct >= 75 ? "#00d4aa" : overallPct >= 40 ? "#ffd60a" : "#ff6b6b" }}>
+        <div style={{ marginTop: "16px", fontSize: "15px", color: overallPct >= 75 ? "#ffd29b" : overallPct >= 40 ? "#ffcc83" : "#ff9f8d" }}>
           {overallPct >= 75 ? "🎯 Baseline kuat — modul bisa fokus ke advanced topics" : overallPct >= 40 ? "📚 Baseline cukup — modul dari intermediate level" : "🌱 Baseline awal — modul dari fundamentals"}
         </div>
       </div>
 
       <div style={{ marginBottom: "32px" }}>
-        <div style={{ fontSize: "11px", color: "#444", letterSpacing: "2px", marginBottom: "16px" }}>BREAKDOWN PER TOPIK</div>
+        <div style={{ fontSize: "12px", color: "#d0b29d", letterSpacing: "1.8px", marginBottom: "16px" }}>BREAKDOWN PER TOPIK</div>
         {sections.map((s) => {
           const sc = scores[s.id] || { score: 0, total: s.questions.length, pct: 0 };
           const level = getLevel(sc.pct);
@@ -1496,18 +1494,18 @@ export default function Pretest() {
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                   <span>{s.icon}</span>
-                  <span style={{ fontSize: "13px", fontWeight: "700" }}>{s.title}</span>
+                  <span style={{ fontSize: "15px", fontWeight: "700" }}>{s.title}</span>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                  <span style={{ fontSize: "12px", color: "#555" }}>{sc.score}/{sc.total}</span>
+                  <span style={{ fontSize: "13px", color: "#d3b8a4" }}>{sc.score}/{sc.total}</span>
                   <span style={styles.tag(lc)}>{getLevelLabel(sc.pct)}</span>
-                  <span style={{ fontSize: "14px", fontWeight: "700", color: lc }}>{Math.round(sc.pct)}%</span>
+                  <span style={{ fontSize: "15px", fontWeight: "700", color: lc }}>{Math.round(sc.pct)}%</span>
                 </div>
               </div>
               <div style={styles.sectionResultBar(sc.pct, s.color)}>
                 <div style={styles.sectionResultFill(sc.pct, s.color)} />
               </div>
-              <div style={{ fontSize: "12px", color: "#555", marginTop: "8px" }}>
+              <div style={{ fontSize: "13px", color: "#d3b8a4", marginTop: "9px" }}>
                 → {levelDescriptions[s.id]?.[level] || "Perlu evaluasi detail untuk topik ini"}
               </div>
             </div>
@@ -1516,18 +1514,18 @@ export default function Pretest() {
       </div>
 
       <div style={styles.recommendation}>
-        <div style={{ fontSize: "11px", color: "#7c3aed", letterSpacing: "2px", marginBottom: "16px" }}>📋 REKOMENDASI MODUL</div>
-        <div style={{ fontSize: "13px", color: "#aaa", lineHeight: "2" }}>
+        <div style={{ fontSize: "12px", color: "#f0b98f", letterSpacing: "1.8px", marginBottom: "16px" }}>📋 REKOMENDASI MODUL</div>
+        <div style={{ fontSize: "14px", color: "#eddacc", lineHeight: "2" }}>
           {Object.entries(scores).map(([id, sc]) => {
             const s = sections.find((x) => x.id === id);
             const level = getLevel(sc.pct);
-            if (level === "low") return <div key={id}>⚠️ <strong style={{ color: "#ff6b6b" }}>{s?.title}</strong> — Modul full dari awal, butuh lebih banyak contoh & latihan</div>;
-            if (level === "mid") return <div key={id}>📌 <strong style={{ color: "#ffd60a" }}>{s?.title}</strong> — Skip basics, fokus ke praktik dan edge cases</div>;
-            return <div key={id}>✅ <strong style={{ color: "#00d4aa" }}>{s?.title}</strong> — Review singkat, langsung ke project-based learning</div>;
+            if (level === "low") return <div key={id}>⚠️ <strong style={{ color: "#ff9f8d" }}>{s?.title}</strong> — Modul full dari awal, butuh lebih banyak contoh & latihan</div>;
+            if (level === "mid") return <div key={id}>📌 <strong style={{ color: "#ffd08f" }}>{s?.title}</strong> — Skip basics, fokus ke praktik dan edge cases</div>;
+            return <div key={id}>✅ <strong style={{ color: "#ffbe85" }}>{s?.title}</strong> — Review singkat, langsung ke project-based learning</div>;
           })}
         </div>
-        <div style={{ marginTop: "20px", padding: "16px", background: "#111", borderRadius: "8px", fontSize: "12px", color: "#555", lineHeight: "1.8" }}>
-          <strong style={{ color: "#aaa" }}>📤 Langkah Selanjutnya:</strong><br />
+        <div style={{ marginTop: "20px", padding: "18px", background: "#2b211b", borderRadius: "10px", fontSize: "13px", color: "#dec5b2", lineHeight: "1.9", border: "1px solid #624535" }}>
+          <strong style={{ color: "#ffe3cc" }}>📤 Langkah Selanjutnya:</strong><br />
           1) Klik tombol export untuk mengunduh hasil lengkap (CSV).<br />
           2) Kirim file CSV itu ke Ade via WhatsApp dengan klik/tap tombol di bawah.<br />
           3) Sertakan catatan singkat jika ada topik yang paling ingin dipelajari dulu.
@@ -1554,13 +1552,13 @@ export default function Pretest() {
         </div>
         {phase === "quiz" && (
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-            <div style={{ fontSize: "11px", color: "#444" }}>{Math.round(progress)}%</div>
+            <div style={{ fontSize: "12px", color: "#f0d5c0" }}>{Math.round(progress)}%</div>
             <div style={styles.progressBar}>
               <div style={styles.progressFill} />
             </div>
           </div>
         )}
-        {phase === "result" && <div style={{ fontSize: "11px", color: "#00d4aa", letterSpacing: "1px" }}>SELESAI ✓</div>}
+        {phase === "result" && <div style={{ fontSize: "12px", color: "#ffbe85", letterSpacing: "1px" }}>SELESAI ✓</div>}
       </div>
       <div style={styles.main}>
         <div style={styles.card}>
