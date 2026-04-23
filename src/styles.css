@@ -1,0 +1,21 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  width: 100%;
+  background: #0d0d0d;
+  color: #e0e0e0;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Courier New", "Fira Code", monospace;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+}

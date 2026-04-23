@@ -14,7 +14,7 @@ const sections = [
         options: [
           "HTML = struktur, CSS = tampilan, JS = interaktivitas",
           "HTML = markup konten, CSS = logika tampilan, JS = penyimpanan data",
-          "HTML = struktur, CSS = style visual, JS = logika dan interaktivitas",
+          "HTML = struktur, CSS = style visual, JS = logika dan manajemen data",
           "HTML = teks, CSS = fungsi interaktif, JS = desain tampilan",
         ],
         answer: 0,
@@ -680,10 +680,13 @@ export default function Pretest() {
   const styles = {
     root: {
       minHeight: "100vh",
+      width: "100%",
+      maxWidth: "100vw",
+      boxSizing: "border-box",
       background: "#0d0d0d",
       fontFamily: "'Courier New', 'Fira Code', monospace",
       color: "#e0e0e0",
-      padding: "0",
+      padding: "0 12px 24px",
       overflowX: "hidden",
     },
     header: {
@@ -691,8 +694,13 @@ export default function Pretest() {
       borderBottom: "1px solid #222",
       padding: "16px 24px",
       display: "flex",
+      flexWrap: "wrap",
+      gap: "12px",
       alignItems: "center",
       justifyContent: "space-between",
+      width: "calc(100% + 24px)",
+      marginLeft: "-12px",
+      marginRight: "-12px",
       position: "sticky",
       top: 0,
       zIndex: 10,
