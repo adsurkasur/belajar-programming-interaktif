@@ -1362,14 +1362,11 @@ export default function Pretest() {
     bigScore: {
       fontSize: "72px",
       fontWeight: "900",
-      background: overallPct >= 75
-        ? "linear-gradient(135deg, #ffc47a, #ff9567)"
+      color: overallPct >= 75
+        ? "#00d4aa"
         : overallPct >= 40
-        ? "linear-gradient(135deg, #ffd689, #ffac72)"
-        : "linear-gradient(135deg, #ff9c84, #ff6c6c)",
-      WebkitBackgroundClip: "text",
-      WebkitTextFillColor: "transparent",
-      backgroundClip: "text",
+        ? "#ffac72"
+        : "#ff6c6c",
       lineHeight: 1,
     },
     sectionResult: {
