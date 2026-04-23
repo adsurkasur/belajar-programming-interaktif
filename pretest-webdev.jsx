@@ -1266,7 +1266,7 @@ export default function Pretest() {
       let border = "#584131";
       let color = "#f0dfd2";
       if (revealed) {
-        if (idx === question.answer) { bg = "#2f2615"; border = "#ffb869"; color = "#ffd9aa"; }
+        if (idx === question.answer) { bg = "#153028"; border = "#00d4aa"; color = "#00d4aa"; }
         else if (idx === selected && idx !== question.answer) { bg = "#3a1f1b"; border = "#ff8b77"; color = "#ffb2a6"; }
         else { bg = "#211916"; border = "#5c4335"; color = "#dbc5b3"; }
       } else if (selected === idx) {
@@ -1293,13 +1293,13 @@ export default function Pretest() {
       width: "22px",
       height: "22px",
       borderRadius: "50%",
-      background: revealed && idx === question?.answer ? "#ffb869" : "#5a4032",
+      background: revealed && idx === question?.answer ? "#00d4aa" : "#5a4032",
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
       fontSize: "11px",
       fontWeight: "700",
-      color: revealed && idx === question?.answer ? "#2f1b11" : "#e2cfc0",
+      color: revealed && idx === question?.answer ? "#153028" : "#e2cfc0",
       marginTop: "1px",
     }),
     explanation: {
@@ -1578,7 +1578,7 @@ export default function Pretest() {
             const level = getLevel(sc.pct);
             if (level === "low") return <div key={id}>⚠️ <strong style={{ color: "#ff9f8d" }}>{s?.title}</strong> — Modul full dari awal, butuh lebih banyak contoh & latihan</div>;
             if (level === "mid") return <div key={id}>📌 <strong style={{ color: "#ffd08f" }}>{s?.title}</strong> — Skip basics, fokus ke praktik dan edge cases</div>;
-            return <div key={id}>✅ <strong style={{ color: "#ffbe85" }}>{s?.title}</strong> — Review singkat, langsung ke project-based learning</div>;
+            return <div key={id}>✅ <strong style={{ color: "#00d4aa" }}>{s?.title}</strong> — Review singkat, langsung ke project-based learning</div>;
           })}
         </div>
         <div style={{ marginTop: "20px", padding: "18px", background: "#2b211b", borderRadius: "10px", fontSize: "13px", color: "#dec5b2", lineHeight: "1.9", border: "1px solid #624535" }}>
