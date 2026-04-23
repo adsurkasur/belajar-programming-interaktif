@@ -128,7 +128,7 @@ const sections = [
     id: "typescript",
     title: "TypeScript",
     icon: "🔷",
-    color: "#3178c6",
+    color: "#60a5fa",
     questions: [
       {
         id: "ts1",
@@ -381,7 +381,7 @@ const sections = [
     id: "database",
     title: "SQL & Database",
     icon: "🗄️",
-    color: "#336791",
+    color: "#6cb0e8",
     questions: [
       {
         id: "db1",
