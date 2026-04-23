@@ -717,8 +717,6 @@ const globalStyles = `
   .option-btn:active:not(:disabled) { transform: scale(0.98); }
 
   .progress-fill-anim { transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1); }
-  
-  .score-pulse { animation: pulseSoft 2s infinite ease-in-out; }
 `;
 
 export default function Pretest() {
@@ -1531,7 +1529,7 @@ export default function Pretest() {
     <div className="animate-fade-up">
       <div style={styles.resultHeader}>
         <div style={{ fontSize: "14px", color: "#d0b29d", letterSpacing: "1.8px", marginBottom: "16px" }} className="animate-fade-in delay-100">HASIL PRETEST</div>
-        <div style={styles.bigScore} className="animate-pop-in delay-200 score-pulse">{overallPct}%</div>
+        <div style={styles.bigScore} className="animate-pop-in delay-200">{overallPct}%</div>
         <div style={{ fontSize: "16px", color: "#e2ccbc", marginTop: "10px" }} className="animate-fade-up delay-300">
           {overallScore} / {overallTotal} soal benar
         </div>
