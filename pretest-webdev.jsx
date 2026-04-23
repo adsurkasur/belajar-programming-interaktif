@@ -675,6 +675,52 @@ const termTooltips = {
 
 const PRETEST_STORAGE_KEY = "wd.pretest.progress.v1";
 
+const globalStyles = `
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes popIn {
+    0% { transform: scale(0.9); opacity: 0; }
+    60% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  @keyframes pulseSoft {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+  }
+  .animate-fade-up { animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+  .animate-pop-in { animation: popIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+  .animate-fade-in { animation: fadeIn 0.4s ease-out forwards; opacity: 0; }
+  
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+  
+  .hover-scale { transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease, filter 0.2s; }
+  .hover-scale:hover { transform: scale(1.04); box-shadow: 0 10px 25px rgba(0,0,0,0.4); filter: brightness(1.1); z-index: 2; }
+  .hover-scale:active { transform: scale(0.96); }
+
+  .hover-glow:hover { box-shadow: 0 0 20px rgba(255, 185, 111, 0.3); }
+
+  .text-hover { transition: opacity 0.2s, color 0.2s; }
+  .text-hover:hover { opacity: 0.8; }
+
+  .option-btn { transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+  .option-btn:hover:not(:disabled) { transform: translateX(8px); background: #3a2a1f !important; border-color: #8c634c !important; }
+  .option-btn:active:not(:disabled) { transform: scale(0.98); }
+
+  .progress-fill-anim { transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  
+  .score-pulse { animation: pulseSoft 2s infinite ease-in-out; }
+`;
+
 export default function Pretest() {
   const [phase, setPhase] = useState("intro"); // intro | quiz | result
   const [currentSection, setCurrentSection] = useState(0);
@@ -776,6 +822,16 @@ export default function Pretest() {
     const timer = setTimeout(() => setResetNotice(""), 2500);
     return () => clearTimeout(timer);
   }, [resetNotice]);
+
+  const [mountedResult, setMountedResult] = useState(false);
+  useEffect(() => {
+    if (phase === "result") {
+      const t = setTimeout(() => setMountedResult(true), 100);
+      return () => clearTimeout(t);
+    } else {
+      setMountedResult(false);
+    }
+  }, [phase]);
 
   function handleGoHome() {
     setPhase("intro");
@@ -1426,20 +1482,20 @@ export default function Pretest() {
   );
 
   const renderQuiz = () => (
-    <div style={{ opacity: animateIn ? 1 : 0, transition: "opacity 0.2s", transform: animateIn ? "translateY(0)" : "translateY(10px)" }}>
-      <div style={styles.sectionBadge}>
+    <div style={{ opacity: animateIn ? 1 : 0, transition: "all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)", transform: animateIn ? "translateY(0) scale(1)" : "translateY(15px) scale(0.98)" }}>
+      <div style={styles.sectionBadge} className="animate-pop-in">
         {section.icon} {section.title}
         <span style={{ color: "#b89d89", marginLeft: "4px" }}>
           · {currentQ + 1}/{section.questions.length}
         </span>
       </div>
-      <div style={styles.qNum}>
+      <div style={styles.qNum} className="animate-fade-in delay-100">
         Q{answeredCount + 1} / {totalQuestions}
       </div>
-      <div style={styles.qText}>{question.text}</div>
-      <div style={styles.options}>
+      <div style={styles.qText} className="animate-fade-up delay-100">{question.text}</div>
+      <div style={styles.options} className="animate-fade-up delay-200">
         {question.options.map((opt, idx) => (
-          <button key={idx} style={styles.optionBtn(idx)} onClick={() => handleSelect(idx)}>
+          <button key={idx} style={styles.optionBtn(idx)} className="option-btn" onClick={() => handleSelect(idx)} disabled={revealed}>
             <span style={styles.optionLabel(idx)}>
               {revealed && idx === question.answer ? "✓" : ["A", "B", "C", "D"][idx]}
             </span>
@@ -1448,18 +1504,18 @@ export default function Pretest() {
         ))}
       </div>
       {revealed && (
-        <div style={styles.explanation}>
+        <div style={styles.explanation} className="animate-fade-up delay-100">
           💡 <strong>Penjelasan:</strong> {renderExplanationWithTooltips(question.explanation)}
           <div style={styles.tooltipHint}>Tip: hover (desktop) atau tap (mobile) istilah bergaris putus-putus untuk melihat definisi.</div>
           {activeTerm && (
-            <div style={styles.tooltipPanel}>
+            <div style={styles.tooltipPanel} className="animate-pop-in">
               <strong>{activeTerm.term}</strong>: {activeTerm.definition}
             </div>
           )}
         </div>
       )}
       {revealed && (
-        <button style={styles.nextBtn} onClick={handleNext}>
+        <button style={styles.nextBtn} className="hover-scale animate-fade-up delay-200" onClick={handleNext}>
           {currentQ + 1 < section.questions.length
             ? "LANJUT →"
             : currentSection + 1 < sections.length
@@ -1540,21 +1596,23 @@ export default function Pretest() {
   );
 
   return (
+    <>
+    <style dangerouslySetInnerHTML={{ __html: globalStyles }} />
     <div style={styles.root}>
       <div style={styles.header}>
         <div style={styles.headerHomeGroup}>
-          <button type="button" style={styles.logoButton} onClick={handleGoHome}>
+          <button type="button" style={styles.logoButton} className="text-hover" onClick={handleGoHome}>
             WD.PRETEST
           </button>
-          <button type="button" style={styles.logoHintButton} onClick={handleGoHome}>
+          <button type="button" style={styles.logoHintButton} className="text-hover" onClick={handleGoHome}>
             klik/tap untuk kembali ke layar awal
           </button>
         </div>
         {phase === "quiz" && (
-          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "12px" }} className="animate-fade-in">
             <div style={{ fontSize: "12px", color: "#f0d5c0" }}>{Math.round(progress)}%</div>
             <div style={styles.progressBar}>
-              <div style={styles.progressFill} />
+              <div style={styles.progressFill} className="progress-fill-anim" />
             </div>
           </div>
         )}
@@ -1568,5 +1626,6 @@ export default function Pretest() {
         </div>
       </div>
     </div>
+    </>
   );
 }
