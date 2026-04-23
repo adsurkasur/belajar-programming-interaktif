@@ -581,6 +581,7 @@ const levelDescriptions = {
   nextjs: { low: "React/Next.js belum dikenal — mulai dari komponen", mid: "Paham konsep, perlu lebih banyak praktek", high: "Framework sudah dipahami" },
   database: { low: "SQL/Database perlu diajarkan dari fundamental", mid: "Dasar SQL oke, perlu Supabase specifics", high: "Database concepts sudah kuat" },
   deployment: { low: "Deployment & CI/CD masih asing", mid: "Konsep deployment cukup, perlu praktek CI/CD", high: "Deployment pipeline sudah paham" },
+  "ai-coding": { low: "Perlu fondasi penggunaan AI coding dari awal", mid: "Sudah kenal tool AI, perlu pendalaman praktik aman", high: "Pemahaman AI coding sudah solid" },
 };
 
 const termTooltips = {
@@ -657,6 +658,18 @@ const termTooltips = {
   "ci/cd": "Otomatisasi build, test, dan rilis aplikasi.",
   "pipeline": "Rangkaian tahap otomatis dari build, test, sampai deploy.",
   "api": "Application Programming Interface, antarmuka komunikasi antar sistem/aplikasi.",
+  "sql": "Structured Query Language, bahasa untuk membaca dan mengelola data di database relasional.",
+  "query": "Perintah untuk meminta atau memanipulasi data di database.",
+  "select": "Kata kunci SQL untuk mengambil data dari tabel.",
+  "from": "Kata kunci SQL untuk menentukan sumber tabel data.",
+  "where": "Kata kunci SQL untuk memberi kondisi/filter data.",
+  "relational database": "Database berbasis tabel yang saling berhubungan lewat key.",
+  "table": "Kumpulan data berbentuk baris dan kolom di database.",
+  "row": "Satu baris data (record) di dalam tabel.",
+  "column": "Kolom/field yang mewakili jenis data tertentu pada tabel.",
+  "record": "Satu entri data lengkap dalam tabel; sinonim dari row.",
+  "filter": "Proses menyaring data sesuai kondisi tertentu.",
+  "primary key": "Kolom unik untuk mengidentifikasi setiap baris di tabel.",
   "edge cases": "Kondisi khusus/ekstrem yang jarang terjadi tetapi tetap harus ditangani.",
 };
 
@@ -914,7 +927,8 @@ export default function Pretest() {
   const toCsvLine = (items) => items.map(csvEscape).join(",");
 
   const downloadTextFile = (filename, content, mimeType = "text/csv;charset=utf-8;") => {
-    const blob = new Blob([content], { type: mimeType });
+    const bom = "\uFEFF";
+    const blob = new Blob([bom, content], { type: mimeType });
     const url = URL.createObjectURL(blob);
     const anchor = document.createElement("a");
     anchor.href = url;
@@ -1494,7 +1508,7 @@ export default function Pretest() {
                 <div style={styles.sectionResultFill(sc.pct, s.color)} />
               </div>
               <div style={{ fontSize: "12px", color: "#555", marginTop: "8px" }}>
-                → {levelDescriptions[s.id][level]}
+                → {levelDescriptions[s.id]?.[level] || "Perlu evaluasi detail untuk topik ini"}
               </div>
             </div>
           );
@@ -1515,7 +1529,7 @@ export default function Pretest() {
         <div style={{ marginTop: "20px", padding: "16px", background: "#111", borderRadius: "8px", fontSize: "12px", color: "#555", lineHeight: "1.8" }}>
           <strong style={{ color: "#aaa" }}>📤 Langkah Selanjutnya:</strong><br />
           1) Klik tombol export untuk mengunduh hasil lengkap (CSV).<br />
-          2) Kirim file CSV itu ke Ade via WhatsApp: <strong style={{ color: "#8be2bf" }}>wa.me/6282228471559</strong>.<br />
+          2) Kirim file CSV itu ke Ade via WhatsApp dengan klik/tap tombol di bawah.<br />
           3) Sertakan catatan singkat jika ada topik yang paling ingin dipelajari dulu.
           <div style={styles.actionRow}>
             <button style={styles.exportBtn} onClick={handleExportResults}>EXPORT HASIL PRETEST (CSV)</button>
