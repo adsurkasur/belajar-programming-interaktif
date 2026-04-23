@@ -4,32 +4,42 @@
 
 | Property | Value |
 | --- | --- |
-| Phase | Propose |
-| Task | Enhance pretest coverage and reduce answer bias in pretest-webdev.jsx |
+| Phase | Completed |
+| Task | Scaffold Vite project and prepare for Vercel deployment |
 | Started | 2026-04-23 00:00 |
 | Last Updated | 2026-04-23 00:00 |
 | Session ID | 20260423-0000 |
 
 ## User Request
 
-> tolong review dulu ini pretestnya mencakup apa aja
+> sudah cukup
+>
+> sekarang buat ini deployable di vercel
+>
+> pakai vite kayanya udah cukup ya
 
 ## Execution Plan
 
 | Element | Details |
 | --- | --- |
-| Intended Phases | Study → Propose → Implement |
-| Evidence to Produce | Updated enhancement proposal, Internet research notes, project plan for `pretest-webdev.jsx` |
-| Anticipated Stops | User approval before implementation |
-| Known Information | Existing quiz has 8 sections, output bias risk, and needs more thorough AI-coding coverage |
-| Unknown Information | Which exact vibecoding questions and AI tools should be added, and how to best reduce answer bias |
-| Initial Risk Level | Low - content and UI logic only; moderate if option randomization is added |
+| Intended Phases | Study → Implement |
+| Evidence to Produce | `package.json`, `vite.config.js`, `index.html`, Vite entry files, successful build/checks |
+| Anticipated Stops | Review before install/build if needed |
+| Known Information | App is a standalone React quiz in `pretest-webdev.jsx` with no existing package setup |
+| Unknown Information | Whether `pretest-webdev.jsx` should be moved or imported as-is into Vite entry point |
+| Initial Risk Level | Low - small scaffolding task with clear Vite conventions |
 
 ## File Context
 
 | File Path | Status | Purpose |
 | --- | --- | --- |
-| pretest-webdev.jsx | reviewed / to edit | Enhance quiz coverage and answer quality, add vibecoding content |
+| pretest-webdev.jsx | reviewed / source | React quiz component to use as app root |
+| package.json | created | Vite install, build, and deploy scripts |
+| vite.config.js | created | Vite config for React JSX support |
+| index.html | created | Vite entry HTML for the app |
+| src/main.jsx | created | Vite app bootstrap and render root component |
+| .gitignore | created | Ignore node_modules, dist, and env files |
+| README.md | created | Deployment instructions for local run and Vercel |
 
 ## Workflow History
 
@@ -42,6 +52,8 @@
 - **00:15** - IMPLEMENT - Added AI/Vibe Coding section and randomized questions within each section
 - **00:20** - IMPLEMENT - Improved option balance for existing questions to reduce guessable long-answer bias
 - **00:22** - VALIDATE - Confirmed `pretest-webdev.jsx` has no syntax errors
+- **00:30** - IMPLEMENT - Created Vite deployment scaffold and verified new config files
+- **00:35** - IMPLEMENT - Added README with local run and Vercel deployment instructions
 
 ## Research Evidence
 
